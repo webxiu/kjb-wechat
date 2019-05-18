@@ -1,0 +1,65 @@
+/**my.wxss**/
+@import '/image/iconfont/iconfont.wxss';
+/* 引入列表公共样式 */
+@import '/image/public/optList.wxss';
+
+.body {
+  background: #eee;
+  padding-top: 20rpx;
+}
+
+/* 分类 */
+
+.cate-list {
+  padding: 10rpx;
+  overflow: hidden;
+  background: #fff;
+  clear: both;
+}
+
+.cate-item {
+  width: 25%;
+  float: left;
+  display: block;
+  text-align: center;
+  margin: 5rpx 0;
+}
+
+.cate-icon {
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+.cate-title {
+  color: gray;
+  text-align: center;
+  padding: 8rpx 0;
+  font-size: 28rpx;
+}
+/*列表*/
+.my-group {
+  border-bottom: 1px solid #eee;
+  }
+.my-group:last-child {
+  border: none;
+  }
+/* 退出 */
+
+.exit {
+  width:100%;
+  background: #fff;
+  margin-top:20rpx;
+  padding-top:40rpx;
+}
+
+.exit-btn {
+  width: 90%;
+  background: #e4636d;
+  border-radius: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  margin: 0 auto 120rpx;
+}

@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/group/group",
+    "pages/info/info",
+    "pages/home/home",
+    "pages/find/find",
+    "pages/my/my",
+    "pages/test/test",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": " 跨境帮",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#bbb",
+    "selectedColor": "#ddd",
+    "list": [
+      {
+        "pagePath": "pages/group/group",
+        "text": "社交",
+        "iconPath": "image/icon/order-off.png",
+        "selectedIconPath": "image/icon/order-on.png"
+      },
+      {
+        "pagePath": "pages/info/info",
+        "text": "资讯",
+        "iconPath": "image/icon/cart-off.png",
+        "selectedIconPath": "image/icon/cart-on.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "image/icon/home-off.png",
+        "selectedIconPath": "image/icon/home-on.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "image/icon/cart-off.png",
+        "selectedIconPath": "image/icon/cart-on.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "image/icon/my-off.png",
+        "selectedIconPath": "image/icon/my-on.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

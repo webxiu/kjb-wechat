@@ -1,0 +1,82 @@
+/**find.wxss**/
+@import '/image/iconfont/iconfont.wxss';
+@import '/image/public/common.wxss';
+
+.find {
+  background: #eee;
+}
+
+.tab-h {
+  height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 34rpx;
+  display: inline-block;
+}
+
+.border-type {
+  background: #fff;
+  display: inline-block;
+  border: 1px solid #ff2741;
+  border-radius: 10rpx;
+  overflow: hidden;
+  height: 50rpx;
+  line-height: 50rpx;
+  vertical-align: middle;
+}
+.tab-item {
+  margin: 0;
+  padding: 0 50rpx;
+  text-align: center;
+  display: inline-block;
+}
+
+.selected {
+  background: #ff2741;
+}
+
+/*轮播*/
+.banner{
+  padding:20rpx;
+}
+.slide-image{
+  height: 100%;
+  width: 100%;
+}
+
+/* tab选项卡组 */
+.tab-list{
+  width: 100%;
+  background: skyblue;
+}
+.tabBar-h {
+  height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  background: #f7f7f7;
+  font-size: 16px;
+  white-space: nowrap;
+}
+.tabBar-item {
+  margin: 0 20rpx;
+  display: inline-block;
+}
+.tabBar-item.active {
+  color: #FF2741 ;
+  position: relative;
+}
+
+.tabBar-item.active:after {
+  content: "";
+  display: block;
+  height: 6rpx;
+  width: 66rpx;
+  background: #FF2741 ;
+  position: absolute;
+  bottom: 6rpx;
+  left: 1rpx;
+  border-radius: 16rpx;
+}

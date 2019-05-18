@@ -1,0 +1,33 @@
+<!--find.wxml-->
+<view class='containner'>
+
+  <!-- 列表 -->
+  <view class='list-wrap'>
+    <view class='my-group' wx:for="{{findList}}" wx:key="index">
+        <icon class='iconfont icon-tongzhi2 list-icon'></icon>
+        <text class='group-tit'>{{item.title}}</text>
+      <view class='group-icon'>
+        <text class='extra-info' wx:if="{{item.tip}}">{{item.tip}}</text>
+        <icon class='iconfont icon-xiangyou'></icon>
+      </view>
+    </view>
+  </view>
+  <!-- 列表2 -->
+  <view class='list-wrap' style='margin-top:20rpx;'>
+    <view class='my-group' wx:for="{{findList2}}">
+        <icon class='iconfont icon-tongzhi2 list-icon'></icon>
+        <text class='group-tit'>{{item.title}}</text>
+      <view class='group-icon'>
+        <text class='extra-info' wx:if="{{item.tip}}">{{item.tip}}</text>
+        <icon class='iconfont icon-xiangyou'></icon>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="container">
+      <view class="userinfo">
+          <button bindtap="abc" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      </view>
+</view>    
+</view>

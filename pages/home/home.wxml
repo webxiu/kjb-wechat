@@ -1,0 +1,93 @@
+<!--home.wxml-->
+<view class='containner'>
+<!-- 顶部Tab选项卡 -->
+<view class='home-tab'>
+  <view class='home-location'>
+    <icon class="iconfont icon-map"></icon>中国</view>
+    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <!-- <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">健康</view> -->
+    <view wx:for="{{navbar}}" wx:key="index" data-current="{{index}}" class="tab-item {{currentTab==index ? 'active' : ''}}" bindtap="swichNav">{{item}}</view>
+  </scroll-view>
+  <!-- 添加 -->
+  <view class='home-add'>
+    <icon class="iconfont icon-tianjia"></icon>
+  </view>
+</view>
+
+<!-- 内容 -->
+<swiper class="tab-content" current="{{currentTab}}" duration="300" 
+    bindchange="switchTab" style="height:{{winHeight}}rpx">
+  <!-- <swiper-item wx:for="{{productData}}" wx:for-item="items" wx:key="indexs"> -->
+  <!-- 动态 -->
+  <swiper-item>
+    <scroll-view scroll-y="true" class="scoll-h">
+          <!-- 首页轮播 -->
+          <view class='banner'>
+            <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" 
+              duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+              <block wx:for="{{homeBanner}}" wx:key="index">
+                <swiper-item style="height:100%">
+                  <image src="{{item}}" class="slide-image" style='width:100%;height:100%;display:block' />
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
+
+          <!-- 认识更多人 -->
+          <view class="dyn-pub">
+            <view class='dyn-people'>您可能想认识的人</view>
+            <view class='dyn-more'>查看更多<icon class='iconfont icon-xiangyou dyn-more-icon'></icon></view>
+          </view>
+
+          <!-- 可能认识的好友列表 -->
+          <view class='frinds-list'>
+            <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
+              <view class='fr-list-item' wx:for="{{friendList}}" 
+                wx:for-item="friend" wx:key="idx">
+                  <image class='fr-item-pic' src='{{friend.url}}'></image>
+                  <view class='fr-name'>{{friend.name}}</view>
+                  <view class='fr-common'>TA与@{{friend.friend}}为好友</view>
+                  <button size='mini' class='add-friend'>+好友</button>
+                </view>
+            </scroll-view>
+          </view>
+           <!-- 可能感兴趣资讯 -->
+          <view class="dyn-pub">
+            <view class='dyn-people'>可能感兴趣资讯</view>
+            <view class='dyn-more'>查看更多 ></view>
+          </view>
+          <!-- 资讯文章 -->
+          <view class='dyn-article-item' wx:for="{{articleList}}"
+           wx:for-item="article" wx:key="artIndex">
+            <view class='article-left'>
+                <text class='article-content'>{{article.artContent}}</text>
+                <view class='article-info'>
+                  <text class='art-mark'>跨境闲聊</text>
+                  <text style='margin-left:5rpx;'>{{article.artTime}}天前</text> · 
+                  <text>{{article.artUser}}</text> · 
+                  <text>{{article.artScan}} 浏览</text>
+                </view>
+              
+            </view>
+            <view class='article-right'>
+              <view class='article-img-box'>
+                <image class="article-img" src='{{article.artImage}}'></image>
+              </view>
+            </view>
+          </view>
+         
+          <view class='bottom-tip' style='font-size: 24rpx;color: #222;text-align: center;'>
+              没有更多内容了
+            </view>
+          <!-- end -->
+          
+    </scroll-view>
+  </swiper-item>
+  <!-- 实操 -->
+  <swiper-item>
+    <scroll-view>
+    <view>******************实操********************</view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+</view>

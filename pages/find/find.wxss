@@ -1,0 +1,9 @@
+/**find.wxss**/
+/* 引入图标公共样式 */
+@import '/image/iconfont/iconfont.wxss';
+/* 引入列表公共样式 */
+@import '/image/public/optList.wxss';
+
+.containner{
+  background: #f7f7f7;
+}

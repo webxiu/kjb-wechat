@@ -1,0 +1,53 @@
+<!--my.wxml-->
+
+<view class='body'>
+  <!-- 主页图标 -->
+  <view class='cate-list'>
+    <view wx:for="{{cateList}}" class='cate-item'>
+      <image class='cate-icon' src='{{item.iconImg}}'></image>
+      <text class='cate-title'>{{item.title}}</text>
+    </view>
+  </view>
+  <!-- 我的社区 -->
+  <view class='list-wrap'>
+    <view class='my-group only'>
+      <view>
+        <icon class='iconfont icon-caogaoxiang' style='color:#3889ff;font-size:32rpx;'></icon>
+        <text class='group-tit'>我的社区</text>
+      </view>
+      <view class='group-icon'>
+        <icon class='iconfont icon-xiangyou'></icon>
+      </view>
+    </view>
+  </view>
+  <!-- 我的列表 -->
+  <view class='list-wrap'>
+    <view class='my-group' wx:for="{{myList}}">
+        <icon class='iconfont icon-caogaoxiang' style='color:#de85e1;font-size:32rpx;'></icon>
+        <text class='group-tit'>{{item.title}}</text>
+      <view class='group-icon'>
+        <text class='extra-info' wx:if="{{item.tip}}">{{item.tip}}</text>
+        <icon class='iconfont icon-xiangyou'></icon>
+      </view>
+    </view>
+  </view>
+
+  <!-- 退出登录 -->
+  <view class='exit'>
+    <button class='exit-btn'>退出登录</button>
+  </view>
+</view>
+
+
+<!-- <view class="container">
+    <view class="userinfo">
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+        <block wx:else>
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+    </view>
+    <view class="usermotto">
+        <text class="user-motto">{{motto}}</text>
+    </view>
+</view> -->

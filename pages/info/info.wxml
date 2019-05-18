@@ -1,0 +1,80 @@
+<!--index.wxml-->
+<view class='find'>
+  <view class='home-tab'>
+    <!-- tab标题 -->
+    <!-- <view class='home-location'><icon class="iconfont icon-map"></icon>中国</view> -->
+    <scroll-view scroll-x="true" class="tab-h">
+      <view class='border-type'>
+        <view wx:for="{{navbar}}" wx:key="index" data-current="{{index}}" class="tab-item {{currentTab==index ? 'selected' : ''}}" bindtap="swichNav">{{item}}</view>
+      </view>
+    </scroll-view>
+    <!-- 搜索与添加 -->
+    <view class='home-add'>
+      <icon class="iconfont icon-sousuo"></icon>
+      <icon class="iconfont icon-bianji2" style="margin-left:20rpx;"></icon>
+    </view>
+    <!-- tab内容 -->
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+      <!-- 资讯 -->
+      <swiper-item>
+        <scroll-view scroll-y="true" class="scoll-h">
+          <!-- 轮播 -->
+          <view class='banner'>
+            <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+              <block wx:for="{{banner}}" wx:key="index">
+                <swiper-item style="height:100%">
+                  <image src="{{item}}" class="slide-image" style='width:100%;height:100%;display:block' />
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
+          <!-- tabBar选项卡 -->
+          <view class='tab-list'>
+            <!-- 选项卡标题 -->
+            <scroll-view scroll-x="true" class="tabBar-h" scroll-left="{{scrollLeft}}">
+              <view wx:for="{{tabBar}}" wx:key="index" data-current="{{index}}" 
+                class="tabBar-item {{currentBar==index ? 'active' : ''}}" 
+                bindtap="swichBar">{{item}}</view>
+            </scroll-view>
+            <!-- 内容 -->
+            <swiper class="tab-content" current="{{currentBar}}" 
+                duration="300" bindchange="swichBarCont"
+                style="height:{{winHeight2}}rpx">
+              <swiper-item wx:for="{{[0,1,2,3,4,5,6,7]}}" wx:key="index">
+                  <scroll-view scroll-y="true" class="scoll-h" >
+                      <block wx:for="{{[1,2,3,4,5,6,7,8]}}" wx:key="index">
+                          <view class="item-ans">
+                              <view class="avatar">
+                              888889
+                                  <!-- <image class="img" src=""></image> -->
+                              </view>
+                              <view class="expertInfo">
+                                  <view class="name">欢颜</view>
+                                  <view class="tag">知名情感博主</view>
+                                  <view class="answerHistory">134个回答，2234人听过 </view>
+                              </view>
+                              <navigator url="/pages/askExpert/expertDetail" class="askBtn">问TA</navigator> 
+                          </view>
+                      </block>
+                  </scroll-view>
+              </swiper-item>
+      </swiper>
+          </view>
+          
+        </scroll-view>
+      </swiper-item>
+      <!-- 实操 -->
+      <swiper-item>
+        <block>
+          <scroll-view scroll-y="true " class="scoll-h ">
+            <!-- 搜索 -->
+            <view class='search-bg'>实操</view>
+
+          </scroll-view>
+        </block>
+      </swiper-item>
+
+    </swiper>
+  </view>
+
+</view>

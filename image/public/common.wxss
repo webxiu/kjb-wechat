@@ -1,0 +1,76 @@
+.containner{
+  padding-top: 80rpx;
+}
+
+.home-tab {
+  height: 80rpx;
+  width:100%;
+  text-align: center;
+  background: #f7f7f7;
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.home-location {
+  position: absolute;
+  left: 10rpx;
+  top: 0;
+  line-height: 80rpx;
+  font-size:32rpx;
+}
+
+.home-add {
+  position: absolute;
+  right: 10rpx;
+  top: 0;
+  line-height: 80rpx;
+}
+
+.tab-h {
+  height: 80rpx;
+  /* width: 100%; */
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  /* background: #f7f7f7; */
+  font-size: 34rpx;
+  display: inline-block;
+ 
+}
+scroll-view{
+  width: 100%;
+  height: 93%!important;/*动态高度*/
+}
+/*底部没有更多提示*/
+.bottom-tip{
+  padding:50rpx;
+}
+.tab-content {
+  
+  background:#eee;
+}
+
+.tab-item {
+  margin: 0 36rpx;
+  text-align: center;
+  display: inline-block;
+}
+
+.tab-item.active {
+  color: #FF2741 ;
+  position: relative;
+}
+
+.tab-item.active:after {
+  content: "";
+  display: block;
+  height: 6rpx;
+  width: 66rpx;
+  background: #FF2741 ;
+  position: absolute;
+  bottom: 6rpx;
+  left: 1rpx;
+  border-radius: 16rpx;
+}
