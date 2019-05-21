@@ -10,7 +10,6 @@ Page({
     //------------产品整页数据-------------
     groupData: [{
       message: {
-        msg: '没有更多消息了',
         content: [
           {
             head_pic: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw==?rule=w_50',

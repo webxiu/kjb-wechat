@@ -1,115 +1,127 @@
-var app = getApp();
+
 Page({
   data: {
-    winHeight: "",//窗口高度
-    currentTab: 0, //预设当前项的值
-    scrollLeft: 0, //tab标题的滚动条位置
-    expertList: [{ //假数据
-      img: "avatar.png",
-      name: "欢顔",
-      tag: "知名情感博主",
-      answer: 134,
-      listen: 2234
-    }],
-    tabTitle: ['健康', '情感', '职场', '育儿', '纠纷', '青葱', '全部', '其他']
+    isPopping: false,//是否已经弹出
+    animPlus: {},//旋转动画
+    animCollect: {},//item位移,透明度
+    animTranspond: {},//item位移,透明度
+    animInput: {},//item位移,透明度
   },
-  // 滚动切换标签样式
-  switchTab: function (e) {
+  //点击弹出
+  plus: function () {
+    if (this.data.isPopping) {
+      //缩回动画
+      this.popp();
+      this.setData({
+        isPopping: false
+      })
+    } else if (!this.data.isPopping) {
+      //弹出动画
+      this.takeback();
+      this.setData({
+        isPopping: true
+      })
+    }
+  },
+  input: function () {
+    console.log("input")
+  },
+  transpond: function () {
+    console.log("transpond")
+  },
+  collect: function () {
+    console.log("collect")
+  },
+
+  //弹出动画
+  popp: function () {
+    //plus顺时针旋转
+    var animationPlus = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-out'
+    })
+    var animationcollect = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-out'
+    })
+    var animationTranspond = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-out'
+    })
+    var animationInput = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-out'
+    })
+    animationPlus.rotateZ(360).step();
+    animationcollect.translate(-100, -100).rotateZ(360).opacity(1).step();
+    animationTranspond.translate(-140, 0).rotateZ(360).opacity(1).step();
+    animationInput.translate(-100, 100).rotateZ(360).opacity(1).step();
     this.setData({
-      currentTab: e.detail.current
-    });
-    this.checkCor();
+      animPlus: animationPlus.export(),
+      animCollect: animationcollect.export(),
+      animTranspond: animationTranspond.export(),
+      animInput: animationInput.export(),
+    })
   },
-  // 点击标题切换当前页时改变样式
-  swichNav: function (e) {
-    var cur = e.target.dataset.current;
-    console.log(this.data.currentTab, cur, this.data.currentTab == cur)
-    if (this.data.currentTab == cur) { return false; }
-    else {
-      this.setData({
-        currentTab: cur
-      })
-    }
-  },
-  //判断当前滚动超过一屏时，设置tab标题滚动条。
-  checkCor: function () {
-    if (this.data.currentTab > 4) {
-      this.setData({
-        scrollLeft: 300
-      })
-    } else {
-      this.setData({
-        scrollLeft: 0
-      })
-    }
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function () {
-    var that = this;
-    //  高度自适应
-    wx.getSystemInfo({
-      success: function (res) {
-        var clientHeight = res.windowHeight,
-          clientWidth = res.windowWidth,
-          rpxR = 750 / clientWidth;
-        var calc = clientHeight * rpxR - 180;
-        console.log(calc)
-        that.setData({
-          winHeight: calc
-        });
-      }
-    });
+  //收回动画
+  takeback: function () {
+    //plus逆时针旋转
+    var animationPlus = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-out'
+    })
+    var animationcollect = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-out'
+    })
+    var animationTranspond = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-out'
+    })
+    var animationInput = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-out'
+    })
+    animationPlus.rotateZ(0).step();
+    animationcollect.translate(0, 0).rotateZ(0).opacity(0).step();
+    animationTranspond.translate(0, 0).rotateZ(0).opacity(0).step();
+    animationInput.translate(0, 0).rotateZ(0).opacity(0).step();
+    this.setData({
+      animPlus: animationPlus.export(),
+      animCollect: animationcollect.export(),
+      animTranspond: animationTranspond.export(),
+      animInput: animationInput.export(),
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+
+  onLoad: function (options) {
+    // 生命周期函数--监听页面加载
+  },
   onReady: function () {
-
+    // 生命周期函数--监听页面初次渲染完成
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-
+    // 生命周期函数--监听页面显示
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
-
+    // 生命周期函数--监听页面隐藏
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
-
+    // 生命周期函数--监听页面卸载
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
-
+    // 页面相关事件处理函数--监听用户下拉动作
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
-
+    // 页面上拉触底事件的处理函数
   },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
-
-  },
-  footerTap: app.footerTap
+    // 用户点击右上角分享
+    return {
+      title: 'title', // 分享标题
+      desc: 'desc', // 分享描述
+      path: 'path' // 分享路径
+    }
+  }
 })

@@ -51,7 +51,7 @@
 				{
 					"id": 0,
 					"name": "当前",
-					"pathName": "pages/info/info",
+					"pathName": "pages/my/my",
 					"query": "",
 					"scene": null
 				}

@@ -10,7 +10,13 @@
   </scroll-view>
   <!-- 添加 -->
   <view class='home-add'>
-    <icon class="iconfont icon-tianjia"></icon>
+    <icon class="iconfont icon-tianjia" catchtap='homeAddButton'></icon>
+    <view class="{{ maskLayer ? 'layer' : ''}}" bindtap='hideMask'></view>
+    <view class='add-item' animation="{{animMove}}">
+      <view class='add-item-list'>文字</view>
+      <view class='add-item-list'>图片</view>
+      <view class='add-item-list'>视频</view>
+    </view>
   </view>
 </view>
 
@@ -21,6 +27,7 @@
   <!-- 推荐 -->
   <swiper-item>
     <scroll-view scroll-y="true" class="scoll-h">
+      <view class='cont'>
           <!-- 首页轮播 -->
           <view class='banner'>
             <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" 
@@ -75,18 +82,18 @@
               </view>
             </view>
           </view>
-          <view class='bottom-tip' style='font-size: 24rpx;color: #222;text-align: center;'>
-            没有更多内容了
+          <view class='ending'>
+            没有更多内容了...
           </view>
          
-            
           <!-- end -->
-          
+         </view>
     </scroll-view>
   </swiper-item>
   <!-- 动态 -->
   <swiper-item>
     <scroll-view scroll-y="true">
+    <view class='cont'>
     <view class='active-list' wx:for="{{activity}}" wx:key="index" wx:for-item="act" wx:for-index="outer">
       <view class='active-header'>
         <view class='header-user'>
@@ -108,6 +115,7 @@
       </view>
     </view>
     <view class='ending'>加载完了...</view>
+    </view>
     </scroll-view>
   </swiper-item>
 </swiper>

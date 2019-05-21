@@ -2,21 +2,24 @@
 <view class="containner">
   <view class='home-tab'>
     <!-- tab标题 -->
-    <!-- <view class='home-location'><icon class="iconfont icon-map"></icon>中国</view> -->
-    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
-      <view wx:for="{{navbar}}" wx:key="index" data-current="{{index}}" class="tab-item {{currentTab==index ? 'active' : ''}}" bindtap="swichNav">{{item}} </view>
-    </scroll-view>
-    <!-- 添加 -->
-    <view class='home-add'>
-      <icon class="iconfont icon-tianjia"></icon>
+    <view class='head'>
+      <!-- <view class='home-location'><icon class="iconfont icon-map"></icon>中国</view> -->
+      <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+        <view wx:for="{{navbar}}" wx:key="index" 
+        data-current="{{index}}" class="tab-item {{currentTab==index ? 'active' : ''}}" bindtap="swichNav">{{item}} </view>
+      </scroll-view>
+      <!-- 添加 -->
+      <view class='home-add'>
+        <icon class="iconfont icon-tianjia"></icon>
+      </view>
     </view>
-
     <!-- tab内容 -->
     <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
       <!-- 消息 -->
       <swiper-item>
-        <block wx:for="{{groupData}}" wx:for-item="items" wx:key="indexs">
           <scroll-view scroll-y="true" class="scoll-h">
+        <view class='cont'>
+        <block wx:for="{{groupData}}" wx:for-item="items" wx:key="indexs">
             <!-- 搜索 -->
             <view class='search-bg'>
               <view class='search-wrapper'>
@@ -51,25 +54,26 @@
                 </view>
               </view>
             </view>
-            <!-- 没有更多消息了 -->
-            <view class='bottom-tip' style='font-size: 24rpx;color: #ccc;'>
-              {{items.message.msg}}
-            </view>
-          </scroll-view>
         </block>
+          <!-- 没有更多消息了 -->
+          <view class='bottom-tip' style='font-size: 24rpx;color: #ccc;'>
+            没有更多消息了...
+          </view>
+        </view>
+          </scroll-view>
       </swiper-item>
       <!-- 好友 -->
       <swiper-item>
-        <block wx:for="{{groupData}}" wx:for-item="items" wx:key="indexs">
-          <scroll-view scroll-y="true" class="scoll-h">
-             <!-- 搜索 -->
+        <scroll-view scroll-y="true" class="scoll-h">
+          <block wx:for="{{groupData}}" wx:for-item="items" wx:key="indexs">
+            <!-- 搜索 -->
             <view class='search-bg'>
               <view class='search-wrapper'>
                 <input type="text" confirm-type="search" class='search' placeholder="搜索" />
                 <icon class="iconfont icon-sousuo search-icon"></icon>
               </view>
             </view>
-             <!-- 好友列表 -->
+            <!-- 好友列表 -->
             <view class='msg-list'>
               <view class='msg-item' style='border:none;' wx:for="{{items.friend.content}}" wx:for-item="msg" wx:key="index">
                 <view class='msg-left'>
@@ -84,18 +88,18 @@
             <!-- 我的好友 -->
             <view class='my-friends'>
               <view>
-              <icon class='iconfont icon-xiangyou'></icon>
-              <text class='friends-tit'>{{items.friend.myfriends}}</text>
+                <icon class='iconfont icon-xiangyou'></icon>
+                <text class='friends-tit'>{{items.friend.myfriends}}</text>
               </view>
               <view class='friends-num'>{{items.friend.number}}</view>
             </view>
-          </scroll-view>
-        </block>
+          </block>
+        </scroll-view>
       </swiper-item>
       <!-- 群组 -->
       <swiper-item>
-        <block wx:for="{{groupData}}" wx:for-item="items" wx:key="indexs">
-          <scroll-view scroll-y="true" class="scoll-h">
+        <scroll-view scroll-y="true" class="scoll-h">
+          <view wx:for="{{groupData}}" wx:for-item="items" wx:key="indexs" style='height:100%;'>
             <!-- 搜索 -->
             <view class='search-bg'>
               <view class='search-wrapper'>
@@ -103,9 +107,10 @@
                 <icon class="iconfont icon-sousuo search-icon"></icon>
               </view>
             </view>
-             <!-- 好友列表 -->
+            <!-- 好友列表 -->
             <view class='msg-list'>
-              <view class='msg-item' style='border:none;' wx:for="{{items.group.content}}" wx:for-item="msg" wx:key="index">
+              <view class='msg-item' style='border:none;' 
+              wx:for="{{items.group.content}}" wx:for-item="msg" wx:key="index">
                 <view class='msg-left'>
                   <image class='msg-left-pic' src='{{msg.head_pic}}'></image>
                 </view>
@@ -117,12 +122,12 @@
               </view>
             </view>
             <!-- 提示内容 -->
-            <view class='bottom-tip' style='font-size: 24rpx;color: #ccc;'>
-               {{items.group.tips}}
+            <view class='bottom-tip' style='font-size: 24rpx;color: #111;'>
+              {{items.group.tips}}
             </view>
-            
-          </scroll-view>
-        </block>
+
+          </view>
+        </scroll-view>
       </swiper-item>
     </swiper>
   </view>

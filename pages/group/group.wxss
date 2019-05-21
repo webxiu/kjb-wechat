@@ -3,7 +3,9 @@
 @import '/image/public/common.wxss';
 
 /*消息*/
-
+.head{
+  width:100%;
+}
 .tab-content {
   background: #fff;
 }
@@ -45,7 +47,9 @@
   z-index: 222;
   color: #ccc;
 }
-
+.cont{
+  height: auto;
+}
 /* 点赞 评论 @我的 */
 
 .my-msg {

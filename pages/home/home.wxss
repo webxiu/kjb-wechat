@@ -7,9 +7,48 @@
 /* .container{
   height: 100%;
 } */
+.layer{
+  width:100%;
+  height: 100%;
+  background: rgba(32, 33, 36, 0.6);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.add-item{
+  width:180rpx;
+  position:absolute;
+  right:10rpx;
+  top:-230rpx;
+  padding: 0 8rpx;
+  border: 20rpx solid transparent;
+  background: #fff;
+  border-radius: 12rpx;
+}
+.add-item::after{
+  content: '';
+  border: 20rpx solid transparent;
+  border-bottom:20rpx solid #fff;
+  position: absolute;
+  top: -58rpx;
+  right: -5rpx;
 
+
+}
+.add-item-list{
+  border-bottom: 2rpx solid rgb(218, 201, 201);
+  line-height: 60rpx;
+}
+.add-item-list:last-child{
+  border-bottom: none;
+}
+.show{
+  height: 100rpx;
+}
 /*首页轮播*/
-
+.cont{
+  height: auto;
+}
 .banner {
   background: #eee;
   padding: 20rpx;
@@ -479,4 +518,5 @@
   padding:30rpx 0;
   font-size: 26rpx;
   text-align: center;
+  color: #aaa;
 }

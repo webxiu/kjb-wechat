@@ -1,9 +1,35 @@
 <!--my.wxml-->
 
 <view class='body'>
+  <!-- 我的 -->
+  <view class="my-item" wx:for="{{person}}" wx:for-item="person" wx:key="index">
+      <view class='my-left'>
+        <image class='my-left-pic' src='{{person.pic}}'></image>
+      </view>
+      <view class='my-right'>
+        <view class='my-user'>{{person.user}}</view>
+        <view class='my-content'>{{person.info}}</view>
+      </view>
+      <!-- 签到 -->
+      <view class='sign-in'>签到<icon class='iconfont icon-xiangyou'></icon></view>
+  </view>
+  <!-- 粉丝 -->
+  <view class='cate'>
+    <view class='cate-item' wx:for="{{info}}" wx:key="index">
+      <view class='cate-num'>{{item.num}}</view>
+      <view class='cate-cate'>{{item.desc}}</view>
+    </view>
+  </view>
+  <!-- 金币 -->
+  <view class='cate collect'>
+    <view class='cate-item' wx:for="{{collect}}" wx:key="index">
+      <view class='cate-num'>{{item.num}}</view>
+      <view class='cate-cate'>{{item.desc}}</view>
+    </view>
+  </view>
   <!-- 主页图标 -->
   <view class='cate-list'>
-    <view wx:for="{{cateList}}" class='cate-item'>
+    <view wx:for="{{cateList}}" class='cate-item' wx:key="index">
       <image class='cate-icon' src='{{item.iconImg}}'></image>
       <text class='cate-title'>{{item.title}}</text>
     </view>
@@ -22,9 +48,9 @@
   </view>
   <!-- 我的列表 -->
   <view class='list-wrap'>
-    <view class='my-group' wx:for="{{myList}}">
-        <icon class='iconfont icon-caogaoxiang' style='color:#de85e1;font-size:32rpx;'></icon>
-        <text class='group-tit'>{{item.title}}</text>
+    <view class='my-group' wx:for="{{myList}}" wx:key="index">
+      <icon class='iconfont icon-caogaoxiang' style='color:#de85e1;font-size:32rpx;'></icon>
+      <text class='group-tit'>{{item.title}}</text>
       <view class='group-icon'>
         <text class='extra-info' wx:if="{{item.tip}}">{{item.tip}}</text>
         <icon class='iconfont icon-xiangyou'></icon>
@@ -37,17 +63,3 @@
     <button class='exit-btn'>退出登录</button>
   </view>
 </view>
-
-
-<!-- <view class="container">
-    <view class="userinfo">
-        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-        <block wx:else>
-            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-        </block>
-    </view>
-    <view class="usermotto">
-        <text class="user-motto">{{motto}}</text>
-    </view>
-</view> -->

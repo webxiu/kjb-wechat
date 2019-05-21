@@ -1,26 +1,6 @@
-<view >
-    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
-        <view wx:for="{{tabTitle}}" wx:for-item="item" wx:key="index" class="tab-item {{currentTab==index?'active':''}}"  data-current="{{index}}" bindtap="swichNav">{{item}}</view>
-        <!-- <view class="tab-item {{currentTab==7?'active':''}}" data-current="7" bindtap="swichNav">其他</view> -->
-    </scroll-view>
-    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab"
-     style="height:{{winHeight}}rpx">
-        <swiper-item wx:for="{{[0,1,2,3,4,5,6,7]}}" wx:key="index">
-            <scroll-view scroll-y="true" class="scoll-h" >
-                <block wx:for="{{[1,2,3,4,5,6,7,8]}}" wx:key="this">
-                    <view class="item-ans">
-                        <view class="avatar">
-                            <!-- <image class="img" src="http://ookzqad11.bkt.clouddn.com/avatar.png"></image> -->
-                        </view>
-                        <view class="expertInfo">
-                            <view class="name">欢颜</view>
-                            <view class="tag">知名情感博主</view>
-                            <view class="answerHistory">134个回答，2234人听过 </view>
-                        </view>
-                        <navigator url="/pages/askExpert/expertDetail" class="askBtn">问TA</navigator> 
-                    </view>
-                </block>
-            </scroll-view>
-        </swiper-item>
-    </swiper>
+<view>
+  <image src="http://www.kuajinghelp.com/spa/img/ft-msg.d6798d60.png" class="img-style" animation="{{animCollect}}" bindtap="collect"></image>
+  <image src="http://www.kuajinghelp.com/spa/img/ft-msg.d6798d60.png" class="img-style" animation="{{animTranspond}}" bindtap="transpond"></image>
+  <image src="http://www.kuajinghelp.com/spa/img/ft-msg.d6798d60.png" class="img-style" animation="{{animInput}}" bindtap="input"></image>
+  <image src="http://www.kuajinghelp.com/spa/img/ft-msg.d6798d60.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
 </view>
