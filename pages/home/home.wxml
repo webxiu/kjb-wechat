@@ -18,7 +18,7 @@
 <swiper class="tab-content" current="{{currentTab}}" duration="300" 
     bindchange="switchTab" style="height:{{winHeight}}rpx">
   <!-- <swiper-item wx:for="{{productData}}" wx:for-item="items" wx:key="indexs"> -->
-  <!-- 动态 -->
+  <!-- 推荐 -->
   <swiper-item>
     <scroll-view scroll-y="true" class="scoll-h">
           <!-- 首页轮播 -->
@@ -75,18 +75,39 @@
               </view>
             </view>
           </view>
-         
           <view class='bottom-tip' style='font-size: 24rpx;color: #222;text-align: center;'>
-              没有更多内容了
-            </view>
+            没有更多内容了
+          </view>
+         
+            
           <!-- end -->
           
     </scroll-view>
   </swiper-item>
-  <!-- 实操 -->
+  <!-- 动态 -->
   <swiper-item>
-    <scroll-view>
-    <view>******************实操********************</view>
+    <scroll-view scroll-y="true">
+    <view class='active-list' wx:for="{{activity}}" wx:key="index" wx:for-item="act" wx:for-index="outer">
+      <view class='active-header'>
+        <view class='header-user'>
+          <image class='header-user-img' src='{{act.userPic}}'></image>
+        </view>
+        <view class='user-info'>
+          <view class='user-info-name'>{{act.user}}</view>
+          <text class='user-info-time'>{{act.time}}</text>
+        </view>
+        <view class='follow-me'>+关注</view>
+      </view>
+      <view class='active-list-item'>
+        <text class='item-tit'>{{act.title}}</text>
+        <view wx:for="{{act.img}}" wx:for-item="img" wx:for-index="inner" wx:key="inner" class="item-img img-width{{act.img.length==1?'1': (act.img.length==2?'2':'3')}}">
+          <view class='item-img-cell'>
+            <view class='item-img-pic' bindtap='previewImage' data-outer="{{outer}}" data-inner="{{inner}}"  data-link="{{img}}" style="background-image:url('{{img}}')"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='ending'>加载完了...</view>
     </scroll-view>
   </swiper-item>
 </swiper>
