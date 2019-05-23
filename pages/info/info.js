@@ -7,18 +7,17 @@ Page({
     banner: ['http://www.kuajinghelp.com/api/v2/files/1738?&w=769.42&h=400&token=', 'http://www.kuajinghelp.com/api/v2/files/1682?&w=747.06&h=400&token=', 'http://www.kuajinghelp.com/api/v2/files/1041?&w=643.61&h=400&token='],
 
     winHeight2: 0,
-    scrollLeft: 0, //tab标题的滚动条位置
     indicatorDots: false,
     autoplay: false,
     interval: 3000,
     duration: 1000,
-    currentBar: 0,
-    currentBarTab: 0,
+    // 分类
     indicatorColor: '#f0f',
     indicatorActiveColor: '#f00',
+    currentIndex: 0,
+    toChildView:'',
 
     winWidth:0,//屏幕宽度
-    isScrollLeft: false, //滑动方向
     tabBar: ['热点资讯', '政策法规', '大咖观点', '管理通道', '境外头条', '热点资讯', '政策法规', '大咖观点', '热点资讯'],
     tabContent:[
       {
@@ -85,106 +84,37 @@ Page({
       }
     ]
   },
-  // 点击标题
+  // 顶部点击标题
   swichNav: function(e) {
     let cur = e.target.dataset.current;
-    if (this.data.currentTab == cur) {
-      return false;
-    } else {
-      this.setData({
-        currentTab: cur
-      })
-    }
+    this.setData({
+      currentTab: cur
+    })
   },
-  // 内容滑动
+  // 顶部滑动内容
   switchTab: function(e) {
     this.setData({
       currentTab: e.detail.current
     });
   },
 
-  // tabBar点击
-  swichBar: function(e) {
-    let sLeft = this.data.scrollLeft; //移动距离
-    let cliCur = e.target.dataset.current; //点击索引
-
-    console.log('点击:', cliCur, '当前', this.data.currentBar,'移动距离:',sLeft)
-    if (cliCur < 3) {
-      this.setData({
-        scrollLeft: 0
-      })
-
-    }else if (cliCur >= 3 && cliCur < this.data.currentBar) {
-      console.log('左点')
-      this.setData({
-        scrollLeft: sLeft - 100
-      })
-    } else {
-      console.log('右点')
-      this.setData({
-        scrollLeft: sLeft + 100
-      })
-    }
+  // 分类标题点击
+  switchItem: function(e) {
+    let clickIndex = e.target.dataset.current; //点击索引
     this.setData({
-      currentBar: e.target.dataset.current
+      currentIndex: clickIndex,
+      toChildView: clickIndex
     });
-    
-
-    // if (this.data.currentBar == cliCur) {
-    //   return false;
-    // } else if (this.data.currentBar <= cliCur && cliCur>3){
-    //     this.setData({
-    //       scrollLeft: sLeft-100,
-    //       currentBar: cliCur, //设置索引
-    //       isScrollLeft: true
-    //     })
-    //   }
   },
-  // tabBar滑动
-  swichBarCont: function(e) {
-    if (e.detail.current > this.data.currentBar) {
-      console.log('左滑')
-      // this.setData({
-      //   isScrollLeft: false
-      // })
-
-    } else {
-      console.log('右滑')
-      // this.setData({
-      //   isScrollLeft: true,
-      // })
-    }
-
+  // 分类内容滑动
+  swiperChange: function(e) {
+    let changeIndex = e.detail.current;//滑动索引
     this.setData({
-      currentBar: e.detail.current
+      currentIndex: changeIndex,
+      toChildView: changeIndex
     });
-    this.checkCor();
   },
-  //判断当前滚动超过一屏时，设置tab标题滚动条。
-  checkCor: function() {
-    let sLeft = this.data.scrollLeft; //移动距离
-    let idx = this.data.currentBar; //索引
-    let point = this.data.isScrollLeft; //滑动方向
-    let winW = this.data.winWidth; //屏幕宽度
-    console.log('当前索引', idx,'滑动距离', sLeft,  point == true);
-
-    if (idx < 3) {
-      this.setData({
-        scrollLeft: 0
-      })
-    } else{
-      if (point == true) {
-        this.setData({
-          scrollLeft: sLeft - 100
-        })
-      } else {
-        this.setData({
-          scrollLeft: sLeft + 100
-        })
-      }
-    }
-
-  },
+ 
   onLoad: function() {
     //页面加载获取屏幕宽度
     this.setData({

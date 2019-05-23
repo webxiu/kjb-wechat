@@ -3,7 +3,7 @@
   <view class='home-tab'>
     <!-- tab标题 -->
     <!-- <view class='home-location'><icon class="iconfont icon-map"></icon>中国</view> -->
-    <scroll-view scroll-x="true" class="tab-h">
+    <scroll-view scroll-x="true" scroll-with-animation class="tab-h">
       <view class='border-type'>
         <view wx:for="{{navbar}}" wx:key="index" data-current="{{index}}" class="tab-item {{currentTab==index ? 'selected' : ''}}" bindtap="swichNav">{{item}}</view>
       </view>
@@ -31,11 +31,11 @@
           <!-- tabBar选项卡 -->
           <view class='tab-list'>
             <!-- 选项卡标题 -->
-            <scroll-view scroll-x="true" :scroll-into-view="toChildView" class="tabBar-h" scroll-left="{{scrollLeft}}">
-              <view wx:for="{{tabBar}}" wx:key="index" data-current="{{index}}" class="tabBar-item {{currentBar==index ? 'active' : ''}}" bindtap="swichBar">{{item}}</view>
+            <scroll-view scroll-x="true" scroll-into-view="ss{{toChildView}}" scroll-with-animation class="tabBar-h">
+              <view wx:for="{{tabBar}}" id="ss{{index}}" wx:key="index" data-current="{{index}}" class="tabBar-item {{currentIndex==index ? 'active' : ''}}" bindtap="switchItem">{{item}}</view>
             </scroll-view>
             <!-- 内容 -->
-            <swiper class="tab-content" current="{{currentBar}}" duration="300" bindchange="swichBarCont" style="height:{{winHeight2}}rpx">
+            <swiper class="tab-content" current="{{currentIndex}}" duration="300" bindchange="swiperChange" style="height:{{winHeight2}}rpx">
               <swiper-item wx:for="{{tabContent}}" wx:key="index" wx:for-item="article">
                 <scroll-view scroll-y="true" class="scoll-h">
                   <view class='dyn-article-item'>
