@@ -1,0 +1,72 @@
+/* pages/publish/publish.wxss */
+.body{
+  padding:0 20rpx;
+}
+.submit-tit{
+  color: #222;
+  padding: 6rpx 0;
+
+}
+.textarea{
+  border: 2rpx solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  border-radius: 8rpx;
+  margin-top:20rpx;
+  padding:12rpx;
+}
+
+.protocol{
+  font-size: 32rpx;
+  padding: 20rpx 0;  
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: right;
+}
+
+.agree{
+  vertical-align: middle;
+}
+
+
+
+.img-list{
+  width:100%;
+  margin-top: 32rpx;
+}
+.img-item{
+  width:25%;
+  height:187rpx;
+  padding:8rpx;
+  box-sizing:border-box;
+  display:inline-block;
+  position: relative;
+}
+/*选择的图片*/
+.img-pic{
+  width: 100%;
+  height:100%;
+}
+/*删除图片*/
+.del-pic{
+  width:37rpx;
+  height:37rpx;
+  position:absolute;
+  background:#ccc;
+  top:-3rpx;
+  right:-1rpx;
+  color:#eee;
+  text-align:center;
+  line-height:30rpx;
+  border-radius:50%;
+  z-index: 222;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACMUlEQVRYR8VX7XHUMBB9qoBQAVABoQJuVUHoIFRAqIRQAVABoQHpqIAr4dJBqGCZ55E9sq2VZE+Y88z9OWt337790LPDhR934fjYBCDGeAPgPYBrAIcF+COAk6oevfe/ehPrAhBjvAXwBcBVp+MnAHci8qN1vgogxshMfwJ43XJkvD8D+CAiJ8veBLAjaysG2fgsIt9LB4oAUvBvO7O2zD6WQKwAJNrjhnr34iQTsizHCkAI4eyce9XrdeO5s4i8yW1mAGrUq+ojWXHOvagFVdW/AJ4qScxKMQMQQqDhKgCdeu+vWB7OuQWC55xzB9Js+SI4EXk5JjEBSEuGI2c97+jYApEHT330p+KLo/nA9zmAewCfKkZTEy1BFIK3mviriNzNAIQQSC3XbO1ZgRicJNp7J0hVf3vvh1WeM6CdHT0DQZuxNABamY8hpj7YA4BOZjPdm3meoIgMsXcByGtOJ63pKDG7G0Ch4aYS1EY0BzGO9eYmNLo9tYE9oksGrCasjmFj1MwRNRp7PYZbFpHR7VtA8FKigppLstb67Oj2CUQI4eSce1ugf1jrq1WcupnSy9IBVDc0bMkyguDPUlH2ZUQQ//M65o3qvZ8BKwqS3nHq3JzDseXuKJZg/POikiwHoar3LQHSYiFlToneL0ozEBQgD3slGmvunLvZJcvzzFiSLWy0ss59d30ZZYzw0+ygqvxguR7Lk3Qg554fIMdR7bTKs1pEPQbPfWYTA88dnP7+ASdbgDBB5b77AAAAAElFTkSuQmCC') center center rgb(122, 84, 84) no-repeat
+
+}
+
+/* 发布按钮 */
+.send{
+  padding: 32rpx 40rpx
+}

@@ -31,7 +31,7 @@
           <!-- tabBar选项卡 -->
           <view class='tab-list'>
             <!-- 选项卡标题 -->
-            <scroll-view scroll-x="true" class="tabBar-h" scroll-left="{{scrollLeft}}">
+            <scroll-view scroll-x="true" :scroll-into-view="toChildView" class="tabBar-h" scroll-left="{{scrollLeft}}">
               <view wx:for="{{tabBar}}" wx:key="index" data-current="{{index}}" class="tabBar-item {{currentBar==index ? 'active' : ''}}" bindtap="swichBar">{{item}}</view>
             </scroll-view>
             <!-- 内容 -->

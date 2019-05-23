@@ -5,13 +5,15 @@
     "pages/info/info",
     "pages/find/find",
     "pages/my/my",
+    
+    "pages/publish/publish",
     "pages/test/test",
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": " 跨境帮",
+    "navigationBarTitleText": "跨境帮",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

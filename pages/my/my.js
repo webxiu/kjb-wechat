@@ -4,10 +4,11 @@ const app = getApp()
 
 Page({
   data: {
+    userInfo:null,
     person: [
       { 
         pic: 'https://avatar.csdn.net/0/B/E/3_qq_38705926.jpg',
-        user: 'Mr.lee',
+        user: '未登录',
         info: '点击编辑个人中心' 
       },
     ],
@@ -56,6 +57,9 @@ Page({
 
   // }),
   onLoad:function(){
-    
+    this.setData({
+      userInfo: app.globalData.userInfo,
+    })
+    console.log(this.data.userInfo)
   }
 })

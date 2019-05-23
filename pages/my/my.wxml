@@ -4,14 +4,18 @@
   <!-- 我的 -->
   <view class="my-item" wx:for="{{person}}" wx:for-item="person" wx:key="index">
       <view class='my-left'>
-        <image class='my-left-pic' src='{{person.pic}}'></image>
+        <image wx:if="{{userInfo.avatarUrl}}" class='my-left-pic' src='{{userInfo.avatarUrl}}'></image>
+        <image wx:else class='my-left-pic' src='{{person.pic}}'></image>
       </view>
       <view class='my-right'>
-        <view class='my-user'>{{person.user}}</view>
+        <view wx:if="{{userInfo.nickName}}" class='my-user'>{{userInfo.nickName}}</view>
+        <view wx:else class='my-user'>{{person.user}}</view>
         <view class='my-content'>{{person.info}}</view>
       </view>
       <!-- 签到 -->
-      <view class='sign-in'>签到<icon class='iconfont icon-xiangyou'></icon></view>
+      <view class='sign-in'>签到 >
+        <!-- <icon class='iconfont icon-xiangyou'></icon> -->
+      </view>
   </view>
   <!-- 粉丝 -->
   <view class='cate'>

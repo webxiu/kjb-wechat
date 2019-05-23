@@ -10,12 +10,12 @@
   </scroll-view>
   <!-- 添加 -->
   <view class='home-add'>
-    <icon class="iconfont icon-tianjia" catchtap='homeAddButton'></icon>
+    <view  catchtap='homeAddButton'>+<icon class="iconfont icon-tianjia"></icon></view>
     <view class="{{ maskLayer ? 'layer' : ''}}" bindtap='hideMask'></view>
     <view class='add-item' animation="{{animMove}}">
-      <view class='add-item-list'>文字</view>
-      <view class='add-item-list'>图片</view>
-      <view class='add-item-list'>视频</view>
+      <view class='add-item-list' catchtap='getText'>文字</view>
+      <view class='add-item-list' catchtap='getImage'>图片</view>
+      <view class='add-item-list' catchtap="getVideo">视频</view>
     </view>
   </view>
 </view>
