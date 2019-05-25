@@ -1,37 +1,63 @@
 <!--home.wxml-->
 <view class='containner'>
-<!-- 顶部Tab选项卡 -->
-<view class='home-tab'>
-  <view class='home-location'>
-    <icon class="iconfont icon-map"></icon>中国</view>
+  <!-- 顶部Tab选项卡 -->
+  <view class='home-tab'>
+    <view class='home-location'>
+      <icon class="iconfont icon-map"></icon>
+      <text wx:if="{{cityInfo}}">{{cityInfo}}</text>
+      <text wx:else>中国</text>
+    </view>
     <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
-    <!-- <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">健康</view> -->
-    <view wx:for="{{navbar}}" wx:key="index" data-current="{{index}}" class="tab-item {{currentTab==index ? 'active' : ''}}" bindtap="swichNav">{{item}}</view>
-  </scroll-view>
-  <!-- 添加 -->
-  <view class='home-add'>
-    <view  catchtap='homeAddButton'>+<icon class="iconfont icon-tianjia"></icon></view>
-    <view class="{{ maskLayer ? 'layer' : ''}}" bindtap='hideMask'></view>
-    <view class='add-item' animation="{{animMove}}">
-      <view class='add-item-list' catchtap='getText'>文字</view>
-      <view class='add-item-list' catchtap='getImage'>图片</view>
-      <view class='add-item-list' catchtap="getVideo">视频</view>
+      <!-- <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="switchTab">健康</view> -->
+      <view wx:for="{{navbar}}" wx:key="index" data-current="{{index}}" class="tab-item {{currentTab==index ? 'active' : ''}}" bindtap="switchTab">{{item}}</view>
+    </scroll-view>
+    <!-- 添加 -->
+    <view class='home-add'>
+      <view catchtap='homeAddButton'>+
+        <icon class="iconfont icon-tianjia"></icon>
+      </view>
+      <view class="{{ maskLayer ? 'layer' : ''}}" bindtap='hideMask'></view>
+      <view class='add-item' animation="{{animMove}}">
+        <view class='add-item-list' catchtap='getText'>文字</view>
+        <view class='add-item-list' catchtap='getImage'>图片</view>
+        <view class='add-item-list' catchtap="getVideo">视频</view>
+      </view>
+    </view>
+  </view>
+
+<!-- 授权弹窗  开始-->
+<view class="modal-box" hidden='{{!showTip}}'>
+  <view class="modal-wrap">
+    <view class="modal-content">
+      <view class="content-title">授权位置信息</view>
+      <view class="content-text">
+        绑定微信号需要收集您的部分用户信息，否则将无法绑定成功，请点击“确认”后按操作提示授权。
+      </view>
+    </view>
+    
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class="dialog-btn cancel" bindtap="exit">取消</button>
+      </view>
+      <view class="weui-flex__item">
+        <button class="dialog-btn confirm" open-type="openSetting" bindopensetting="getLocation">确认</button>
+      </view>
     </view>
   </view>
 </view>
+<!-- 授权弹窗 结束 -->
 
-<!-- 内容 -->
-<swiper class="tab-content" current="{{currentTab}}" duration="300" 
-    bindchange="switchTab" style="height:{{winHeight}}rpx">
-  <!-- <swiper-item wx:for="{{productData}}" wx:for-item="items" wx:key="indexs"> -->
-  <!-- 推荐 -->
-  <swiper-item>
-    <scroll-view scroll-y="true" class="scoll-h">
-      <view class='cont'>
+
+  <!-- 内容 -->
+  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="swiperChange" style="height:{{winHeight}}rpx">
+    <!-- <swiper-item wx:for="{{productData}}" wx:for-item="items" wx:key="indexs"> -->
+    <!-- 推荐 -->
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+        <view class='cont'>
           <!-- 首页轮播 -->
           <view class='banner'>
-            <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" 
-              duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+            <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
               <block wx:for="{{homeBanner}}" wx:key="index">
                 <swiper-item style="height:100%">
                   <image src="{{item}}" class="slide-image" style='width:100%;height:100%;display:block' />
@@ -43,38 +69,38 @@
           <!-- 认识更多人 -->
           <view class="dyn-pub">
             <view class='dyn-people'>您可能想认识的人</view>
-            <view class='dyn-more'>查看更多<icon class='iconfont icon-xiangyou dyn-more-icon'></icon></view>
+            <view class='dyn-more'>查看更多
+              <icon class='iconfont icon-xiangyou dyn-more-icon'></icon>
+            </view>
           </view>
 
           <!-- 可能认识的好友列表 -->
           <view class='frinds-list'>
-            <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
-              <view class='fr-list-item' wx:for="{{friendList}}" 
-                wx:for-item="friend" wx:key="idx">
-                  <image class='fr-item-pic' src='{{friend.url}}'></image>
-                  <view class='fr-name'>{{friend.name}}</view>
-                  <view class='fr-common'>TA与@{{friend.friend}}为好友</view>
-                  <button size='mini' class='add-friend'>+好友</button>
-                </view>
+            <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+              <view class='fr-list-item' wx:for="{{friendList}}" wx:for-item="friend" wx:key="idx">
+                <image class='fr-item-pic' src='{{friend.url}}'></image>
+                <view class='fr-name'>{{friend.name}}</view>
+                <view class='fr-common'>TA与@{{friend.friend}}为好友</view>
+                <button size='mini' class='add-friend'>+好友</button>
+              </view>
             </scroll-view>
           </view>
-           <!-- 可能感兴趣资讯 -->
+          <!-- 可能感兴趣资讯 -->
           <view class="dyn-pub">
             <view class='dyn-people'>可能感兴趣资讯</view>
             <view class='dyn-more'>查看更多 ></view>
           </view>
           <!-- 资讯文章 -->
-          <view class='dyn-article-item' wx:for="{{articleList}}"
-           wx:for-item="article" wx:key="artIndex">
+          <view class='dyn-article-item' wx:for="{{articleList}}" wx:for-item="article" wx:key="artIndex">
             <view class='article-left'>
-                <text class='article-content'>{{article.artContent}}</text>
-                <view class='article-info'>
-                  <text class='art-mark'>跨境闲聊</text>
-                  <text style='margin-left:5rpx;'>{{article.artTime}}天前</text> · 
-                  <text>{{article.artUser}}</text> · 
-                  <text>{{article.artScan}} 浏览</text>
-                </view>
-              
+              <text class='article-content'>{{article.artContent}}</text>
+              <view class='article-info'>
+                <text class='art-mark'>跨境闲聊</text>
+                <text style='margin-left:5rpx;'>{{article.artTime}}天前</text> ·
+                <text>{{article.artUser}}</text> ·
+                <text>{{article.artScan}} 浏览</text>
+              </view>
+
             </view>
             <view class='article-right'>
               <view class='article-img-box'>
@@ -85,38 +111,38 @@
           <view class='ending'>
             没有更多内容了...
           </view>
-         
+
           <!-- end -->
-         </view>
-    </scroll-view>
-  </swiper-item>
-  <!-- 动态 -->
-  <swiper-item>
-    <scroll-view scroll-y="true">
-    <view class='cont'>
-    <view class='active-list' wx:for="{{activity}}" wx:key="index" wx:for-item="act" wx:for-index="outer">
-      <view class='active-header'>
-        <view class='header-user'>
-          <image class='header-user-img' src='{{act.userPic}}'></image>
         </view>
-        <view class='user-info'>
-          <view class='user-info-name'>{{act.user}}</view>
-          <text class='user-info-time'>{{act.time}}</text>
-        </view>
-        <view class='follow-me'>+关注</view>
-      </view>
-      <view class='active-list-item'>
-        <text class='item-tit'>{{act.title}}</text>
-        <view wx:for="{{act.img}}" wx:for-item="img" wx:for-index="inner" wx:key="inner" class="item-img img-width{{act.img.length==1?'1': (act.img.length==2?'2':'3')}}">
-          <view class='item-img-cell'>
-            <view class='item-img-pic' bindtap='previewImage' data-outer="{{outer}}" data-inner="{{inner}}"  data-link="{{img}}" style="background-image:url('{{img}}')"></view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 动态 -->
+    <swiper-item>
+      <scroll-view scroll-y="true">
+        <view class='cont'>
+          <view class='active-list' wx:for="{{activity}}" wx:key="index" wx:for-item="act" wx:for-index="outer">
+            <view class='active-header'>
+              <view class='header-user'>
+                <image class='header-user-img' src='{{act.userPic}}'></image>
+              </view>
+              <view class='user-info'>
+                <view class='user-info-name'>{{act.user}}</view>
+                <text class='user-info-time'>{{act.time}}</text>
+              </view>
+              <view class='follow-me'>+关注</view>
+            </view>
+            <view class='active-list-item'>
+              <text class='item-tit'>{{act.title}}</text>
+              <view wx:for="{{act.img}}" wx:for-item="img" wx:for-index="inner" wx:key="inner" class="item-img img-width{{act.img.length==1?'1': (act.img.length==2?'2':'3')}}">
+                <view class='item-img-cell'>
+                  <view class='item-img-pic' bindtap='previewImage' data-outer="{{outer}}" data-inner="{{inner}}" data-link="{{img}}" style="background-image:url('{{img}}')"></view>
+                </view>
+              </view>
+            </view>
           </view>
+          <view class='ending'>加载完了...</view>
         </view>
-      </view>
-    </view>
-    <view class='ending'>加载完了...</view>
-    </view>
-    </scroll-view>
-  </swiper-item>
-</swiper>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
 </view>

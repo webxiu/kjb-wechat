@@ -3,7 +3,7 @@
   <view class='home-tab'>
     <!-- tab标题 -->
     <!-- <view class='home-location'><icon class="iconfont icon-map"></icon>中国</view> -->
-    <scroll-view scroll-x="true" scroll-with-animation class="tab-h">
+    <scroll-view scroll-x="true" class="tab-h">
       <view class='border-type'>
         <view wx:for="{{navbar}}" wx:key="index" data-current="{{index}}" class="tab-item {{currentTab==index ? 'selected' : ''}}" bindtap="swichNav">{{item}}</view>
       </view>

@@ -1,6 +1,8 @@
 
 Page({
   data: {
+    showTip:true,//显示授权弹窗
+    
     isPopping: false,//是否已经弹出
     animPlus: {},//旋转动画
     animCollect: {},//item位移,透明度

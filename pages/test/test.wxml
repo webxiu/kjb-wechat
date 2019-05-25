@@ -5,6 +5,8 @@
   <image src="http://www.kuajinghelp.com/spa/img/ft-msg.d6798d60.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
 </view>
 
+
+<view>微信授权:</view>
 <button type='primary'  size='mini'  open-type="openSetting"   bindopensetting='handleSetting'   >
 去授权</button>;
 <view>相机组件:</view>
@@ -17,3 +19,22 @@
 <button type="primary" sbindtap="takePhoto">拍照</button>
 <view>预览</view>
 <image mode="widthFix" src="{{src}}"></image>
+
+<view class="modal-box" hidden='{{!showTip}}'>
+  <view class="modal-content">
+    <view class="content-title">提示信息</view>
+    <view class="content-text">
+      绑定微信号需要收集您的部分用户信息，否则将无法绑定成功，请点击“确认”后按操作提示授权。
+    </view>
+  </view>
+  <view class="modal-btns">
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button class="dialog-btn cancel" bindtap="exit">取消</button>
+      </view>
+      <view class="weui-flex__item">
+        <button class="dialog-btn confirm" open-type="getUserInfo" bindgetuserinfo="getUserInfo">确认</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -56,10 +56,13 @@ Page({
   //   mask: true                                    
 
   // }),
-  onLoad:function(){
+  onShow(){//打开页面就执行--刷新功能
     this.setData({
       userInfo: app.globalData.userInfo,
     })
     console.log(this.data.userInfo)
+  },
+  onLoad:function(){
+   
   }
 })

@@ -1,9 +1,21 @@
 //home.js
 //获取应用实例
 const app = getApp()
+// 引用百度地图微信小程序JSAPI模块 
+let bmap = require('../../utils/bmap-wx/bmap-wx.js'); 
+let wxMarkerData = []; 
 
 Page({
   data: {
+    // latitude: '',//纬度
+    // longitude: '',//经度
+    cityInfo:'',//城市
+    ak:'IRBjqkxwTfdjMxrxQ8YpW4AQalWj16xp',//app-key
+    canIUse: wx.canIUse('button.open-type.openSetting'),
+    showTip: false,//授权弹窗,默认不显示
+
+
+
     navbar: ['推荐', '动态'],
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置  
@@ -148,43 +160,26 @@ Page({
     ]
 
   },
-  // 循环标题
-  navbarTap: function(e) {
+
+  //********************************方法**************************
+  //获取地理位置
+
+
+  // 顶部点击标题切换
+  switchTab: function(e) {
+    var cur = e.target.dataset.current;
     this.setData({
-      currentTab: e.currentTarget.data.current
+      currentTab: cur
     })
   },
-  // 滚动切换标签样式
-  switchTab: function(e) {
+  // 顶部滑动内容切换
+  swiperChange: function(e) {
     this.setData({
       currentTab: e.detail.current
     });
-    this.checkCor();
   },
-  // 点击标题切换当前页时改变样式
-  swichNav: function(e) {
-    var cur = e.target.dataset.current;
-    if (this.data.currentTaB == cur) {
-      return false;
-    } else {
-      this.setData({
-        currentTab: cur
-      })
-    }
-  },
-  //判断当前滚动超过一屏时，设置tab标题滚动条。(此处只有两个navbar,不需移动)
-  checkCor: function() {
-    // console.log(77, this.data.navbar.length)
-    if (this.data.currentTab > 4) {
-      this.setData({
-        scrollLeft: 300
-      })
-    } else {
-      this.setData({
-        scrollLeft: 0
-      })
-    }
-  },
+
+
   // 首页动态点击图片放大
   previewImage(e) {
     let currentImg = e.currentTarget.dataset.link // 获取被点击图片的连接
@@ -284,7 +279,7 @@ Page({
                 url: '/pages/publish/publish?picture=' + res.tempFilePaths,
               })
             },
-            fail: function(err) { //失败
+            fail: function(err) { //失败执行
               wx.showModal({
                 title: '提示信息',
                 content: '获取相册失败',
@@ -384,35 +379,129 @@ Page({
     })
 
   },
+  //地图API
+  coord_Map(){
+    var _this = this;
+    // 获取地理位置,/新建bmap
+    var BMap = new bmap.BMapWX({
+      ak: _this.data.ak
+    });
+    var fail = function (data) {
+      // wx.showToast({
+      //   title: '获取位置失败',
+      //   icon: 'none',
+      //   duration: 1000
+      // })
+      console.log('失败数据', data);
+      //显示授权确认框
+      _this.setData({
+        showTip: true,
+      })
+    }
+    var success = function (data) {
+      console.log('成功数据', data);//返回数据内，已经包含经纬度
+      wxMarkerData = data.wxMarkerData;//使用wxMarkerData获取数据
+
+      // 全局设置经城市
+      app.globalData.cityInfo = data.originalData.result.addressComponent.city
+
+      _this.setData({
+        // markers: wxMarkerData,
+        // latitude: wxMarkerData[0].latitude,
+        // longitude: wxMarkerData[0].longitude,
+        // address: wxMarkerData[0].address,
+        cityInfo: data.originalData.result.addressComponent.city,
+        showTip: false,
+      });
+    }
+
+    BMap.regeocoding({
+      fail: fail,
+      success: success
+    });
+  },
+  // 取消 位置授权
+  exit() {
+    this.setData({
+      showTip: false,
+    });
+  },
+  // 确定 位置授权
+  getLocation(){
+    let _this = this;
+    wx.getLocation({
+      type: 'wgs84',//wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
+      success(res) {
+        wx.showToast({
+          title: '授权成功!',
+          icon: 'success',
+          duration: 1000
+        })
+        _this.coord_Map();
+        // const latitude = res.latitude//纬度
+        // const longitude = res.longitude//经度
+        // console.log('授权成功,经纬度:', latitude, longitude)
+        // //全局设置坐标
+        // app.globalData.latitude = latitude;
+        // app.globalData.longitude = longitude;
+        _this.setData({
+          // latitude: latitude,
+          // longitude: longitude,
+          showTip:false,
+        })
+
+      },
+      fail: function (err) {
+        console.log(err)
+        wx.showToast({
+          title: '拒绝授权',
+          icon: 'none',
+          duration: 1000
+        })
+        _this.reGetLocation();//获取地理位置
+      }
+
+    })
+  },
+  onShow:function(){
+    this.coord_Map();//调用 地址获取方法
+  },
   onLoad: function() {
-    var that = this;
+    let _this = this;
     //  高度自适应
     wx.getSystemInfo({
       success: function(res) {
-        var clientHeight = res.windowHeight,
+        let clientHeight = res.windowHeight,
           clientWidth = res.windowWidth,
           rpxR = 750 / clientWidth;
-        // var calc = clientHeight * rpxR - 160;
-        var calc = clientHeight * rpxR;
+        // let calc = clientHeight * rpxR - 160;
+        let calc = clientHeight * rpxR;
         console.log(calc)
-        that.setData({
+        _this.setData({
           winHeight: calc
         });
       }
     })
 
-    // function getImgNum(param){
-    //   let className = '';
-    //   if (param >2 ) {
-    //       className = 'item-img2'
-    //   }else if(param == 1){
-    //     className = 'item-img1'
-    //   }else{
-    //     className = 'item-img'
-    //   }
-    //   return className;
-    // }
+    //获取位置
+    wx.getSetting({
+      success:function(res){
+        if (res.authSetting['scope.userLocation'] != undefined || res.authSetting['scope.userLocation'] != true){
+          _this.coord_Map();// 调用 地址获取方法
+          console.log('授权成功2',res)
+        }else{
+          // console.log('授权失败', res)
+          wx.showToast({
+            title: '授权失败了哦',
+            icon: 'none',
+            duration: 1000
+          })
+        }
+      }
+    })
+
   },
+
 
   //打电话
   tell: function() {
