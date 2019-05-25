@@ -5,6 +5,9 @@ const app = getApp()
 Page({
   data: {
     userInfo:null,
+    showTip:false,//授权提示框
+    hasUserInfo: false,
+    canIUse:wx.canIUse('button.open-type.getUserInfo'),
     person: [
       { 
         pic: 'https://avatar.csdn.net/0/B/E/3_qq_38705926.jpg',
@@ -48,21 +51,72 @@ Page({
       {title: '设置', tip: ''}
     ]
 
-    // 循环数据
   },
-
-  // wx:wx.showLoading({
-  //   title: '加载中',
-  //   mask: true                                    
-
-  // }),
-  onShow(){//打开页面就执行--刷新功能
+  //确认授权
+  getUserInfo(e){
+    let _this = this;
+    app.globalData.userInfo = e.detail.userInfo;//获取用户信息,全局设置
+    if (app.globalData.userInfo){
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true,
+        showTip:false,
+      })
+      wx.showToast({
+        title: '授权成功!',
+        icon: 'success',
+        duration: 1000
+      })
+    }else {
+      wx.showToast({
+        title: '授权失败!',
+        icon:'loading',
+        duration: 1000
+      })
+    }
+  },
+  //取消授权
+  cancel(){
     this.setData({
-      userInfo: app.globalData.userInfo,
+      showTip:false,
     })
-    console.log(this.data.userInfo)
+  },
+  onShow(){//打开页面就执行--刷新功能
+    if (app.globalData.userInfo){
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        showTip:false,
+      })
+    }else{//未授权 显示授权窗口
+      this.setData({
+        showTip: true,
+      })
+    }
   },
   onLoad:function(){
-   
+    if (app.globalData.userInfo){//已经授权
+      this.setData({
+        userInfo:app.globalData.userInfo,
+        showTip:false,
+      })
+    } else if (this.data.canIUse){
+      this.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo:res.userInfo,
+          hasUserInfo: false
+        })
+      }
+    }else{
+      wx.getUserInfo({
+        success:function(res){
+          app.globalData.userInfo = res.userInfo;
+          this.setData({
+            userInfo:res.userInfo,
+            hasUserInfo:true,
+            showTip: false
+          })
+        }
+      })
+    }
   }
 })

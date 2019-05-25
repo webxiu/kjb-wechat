@@ -421,7 +421,7 @@ Page({
     });
   },
   // 取消 位置授权
-  exit() {
+  cancel() {
     this.setData({
       showTip: false,
     });
@@ -452,13 +452,12 @@ Page({
 
       },
       fail: function (err) {
-        console.log(err)
+        console.log('拒绝授权',err)
         wx.showToast({
           title: '拒绝授权',
           icon: 'none',
           duration: 1000
         })
-        _this.reGetLocation();//获取地理位置
       }
 
     })

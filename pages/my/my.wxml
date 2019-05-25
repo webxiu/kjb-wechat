@@ -17,6 +17,27 @@
         <!-- <icon class='iconfont icon-xiangyou'></icon> -->
       </view>
   </view>
+  <!-- 授权登录弹窗  开始-->
+  <view class="modal-box" hidden='{{!showTip}}'>
+    <view class="modal-wrap">
+      <view class="modal-content">
+        <view class="content-title">微信授权登录</view>
+        <view class="content-text">
+          获得你的公开信息(昵称,头像,地区及性别)，否则部分功能将无法使用，请点击“确认”后按操作提示授权。
+        </view>
+      </view>
+      
+      <view class="weui-flex">
+        <view class="weui-flex__item">
+          <button class="dialog-btn cancel" bindtap="cancel">取消</button>
+        </view>
+        <view class="weui-flex__item">
+          <button class="dialog-btn confirm" open-type="getUserInfo" bindgetuserinfo="getUserInfo">确认</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 授权登录弹窗 结束 -->
   <!-- 粉丝 -->
   <view class='cate'>
     <view class='cate-item' wx:for="{{info}}" wx:key="index">

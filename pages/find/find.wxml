@@ -23,11 +23,5 @@
       </view>
     </view>
   </view>
-
-
-  <view class="container">
-      <view class="userinfo">
-          <button bindtap="abc" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 微信授权登录 </button>
-      </view>
-</view>    
+   
 </view>

@@ -37,7 +37,7 @@
     
     <view class="weui-flex">
       <view class="weui-flex__item">
-        <button class="dialog-btn cancel" bindtap="exit">取消</button>
+        <button class="dialog-btn cancel" bindtap="cancel">取消</button>
       </view>
       <view class="weui-flex__item">
         <button class="dialog-btn confirm" open-type="openSetting" bindopensetting="getLocation">确认</button>
