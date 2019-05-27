@@ -3,24 +3,24 @@
 }
 .swich-box{
   width: 100%;
-  background: #fff;
+  background: #f7f7f7;
 }
 .swich-tab {
-  height: 80rpx;
+  height: 96rpx;
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;
   font-size: 34rpx;
   display: inline-block;
   text-align: center;
-  line-height: 80rpx;
+  line-height: 96rpx;
 }
 .tab-right {
-  height: 80rpx;
+  height: 96rpx;
   position: absolute;
   right: 10rpx;
   top: 0;
-  line-height: 80rpx;
+  line-height: 96rpx;
 }
 .border-type {
   background: #fff;
@@ -28,8 +28,8 @@
   border: 1px solid #ff2741;
   border-radius: 10rpx;
   overflow: hidden;
-  height:50rpx;
-  line-height:50rpx;
+  height: 70rpx;
+  line-height: 70rpx;
   vertical-align: middle;
 }
 .tab-item {
@@ -45,14 +45,7 @@
   background: #ff2741;
   color: #fff;
 }
-/*轮播*/
-.banner{
-  padding:20rpx;
-}
-.slide-image{
-  height: 100%;
-  width: 100%;
-}
+
 /*内容*/
 /* 选项卡 */
 .tabBar-item {
@@ -84,67 +77,6 @@ border-bottom:2rpx solid #f7f7f7;
   position: relative;
   border-bottom:4rpx solid #FF2741;
 }
-
-/* 资讯文章 */
-.dyn-article-item{
-  background: #fff;
-  height: 200rpx;
-  border-bottom: 1px solid #ccc;
-}
-.article-left{
-  float: left;
-  width:calc(100% - 260rpx);
-  box-sizing: border-box;
-  height: 100%;
-  padding: 20rpx;
-  position: relative;
-}
-.article-content{
-  font-size: 32rpx;
-  word-break: keep-all;
-  word-wrap: break-word;
-  text-align:left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-
-}
-.article-info{
-  position: absolute;
-  bottom: 12rpx;
-  left: 20rpx;
-  font-size: 20rpx;
-  color: rgb(204, 161, 161);
-  /* 不换行 */
-  white-space:nowrap;
-
-}
-.article-info .art-mark{
-  color: #FF2741;
-  border: 1px solid #FF2741;
-  padding: 1rpx 4rpx;
-}
-
-.article-right{
-  float: left;
-  height: 100%;
-  width: 260rpx;
-}
-.article-img-box{
-  text-align: center;
-  padding:20rpx;
-  box-sizing: border-box;
-}
-.article-img{
-  width: 100%;
-  z-index: 222;
-  height: 160rpx;
-}
-
-
-
 
 /* 问答列表 */
 .ask-list{

@@ -3,7 +3,7 @@
 
   <!-- 列表 -->
   <view class='list-wrap'>
-    <view class='my-group' wx:for="{{findList}}" wx:key="index">
+    <view class='my-group' wx:for="{{findList}}" wx:key="index" data-txt="{{item.title}}" bindtap='toAnswer'>
         <icon class='iconfont icon-tongzhi2 list-icon'></icon>
         <text class='group-tit'>{{item.title}}</text>
       <view class='group-icon'>

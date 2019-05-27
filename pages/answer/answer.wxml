@@ -1,0 +1,222 @@
+<!--find.wxml-->
+<view class='containner'>
+  <!-- 头部 -->
+  <view class='swich-box'>
+    <!-- tab标题 -->
+    <scroll-view scroll-x="true" class="swich-tab">
+      <view class='border-type'>
+        <view wx:for="{{answer.title}}" wx:key="index" data-current="{{index}}" class="tab-item {{currentTab==index ? 'selected' : ''}}" bindtap="clickTab">{{item}}</view>
+      </view>
+    </scroll-view>
+    <!-- 搜索 -->
+    <view class='tab-right'>
+      <text class="">搜索</text>
+    </view>
+  </view>
+
+  <!-- ********************内容********************* -->
+  <swiper current="{{currentTab}}" duration="300" scroll-x bindchange="switchTab"class="swiper-box"  style="height:{{winHeight}}rpx">
+    <swiper-item>
+      <scroll-view scroll-x class='tabBar-h' scroll-with-animation scroll-into-view="ss{{toChildView}}">
+        <view wx:for="{{resData.answerTab}}" id="ss{{index}}" 
+          wx:key="index" data-current="{{index}}" 
+          class="tabBar-item {{currentIndex==index ? 'active' : ''}}" 
+          bindtap="contentClick">{{item}}</view>
+      </scroll-view>
+      <swiper scroll-x current="{{currentIndex}}" duration="300" bindchange='contentSwitch' style="height:{{winHeight}}rpx">
+        <!-- 内容列表 -->
+        <swiper-item class='ask-list'>
+          <scroll-view scroll-y style="height:{{winHeight}}rpx">
+            <view class='ask-wapper' wx:for="{{resData.content}}" wx:key="index">
+              <view class='ask-item'>
+                  <view class='ask-avater'>
+                    <!-- 头像 -->
+                    <image class='ask-img' src='{{item.userPic}}'></image>
+                  </view>
+                  <view class='ask-user'>
+                    <view class='ask-user-name'>{{item.user}}</view>
+                    <view class='ask-user-info'>{{item.info}}</view>
+                  </view>
+                  <view class='ask-time'>{{item.time}}</view>
+              </view>
+              <view class='ask-detail'>
+                <!-- 问答标题 -->
+                <text class='ask-tit'>{{item.title}}</text>
+                <text class='ask-icon'>精</text>
+                <view class='ask-cont'>{{item.content}}</view>
+              </view>
+              <view class='all-comment'>
+                <!-- 评论内容 -->
+                <view wx:for="{{item.comment}}" wx:for-item="msg" wx:key="index">
+                  <text class='reply'>{{msg.comUser}}</text><text>：{{msg.comContent}}</text>
+                  <view class='res-reply'>共{{msg.count}}条回答></view>
+                </view>
+              </view>
+            </view>
+            <view class='ask-wapper'>
+              <view class='ask-item'>
+                  <view class='ask-avater'>
+                    <image class='ask-img' src='https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/243248e788b1e4b88de7bb9de8bfb95854.jpg'></image>
+                  </view>
+                  <view class='ask-user'>
+                    <view class='ask-user-name'>Lisa</view>
+                    <view class='ask-user-info'>问答高手</view>
+                  </view>
+                  <view class='ask-time'>2019/5/19</view>
+              </view>
+              <view class='ask-detail'>
+                <text class='ask-tit'>在2019年下半年的旺季即将来临，大卖小白们是如何布局的？</text>
+                <text class='ask-icon'>精</text>
+                <view class='ask-cont'>电信网络电脑经常无法进入后台 不要说处理订单了 正常的运营都很难开展 大家有遇到同样情况的吗？</view>
+              </view>
+              <view class='all-comment'>
+                <text class='reply'>Maliya</text><text>：小白，沙发已经搬好，坐等大神分享</text>
+                <view class='res-reply'>共1条回答></view>
+              </view>
+            </view>
+            <view class='ask-wapper'>
+              <view class='ask-item'>
+                  <view class='ask-avater'>
+                    <image class='ask-img' src='https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/243248e788b1e4b88de7bb9de8bfb95854.jpg'></image>
+                  </view>
+                  <view class='ask-user'>
+                    <view class='ask-user-name'>Lisa</view>
+                    <view class='ask-user-info'>问答高手</view>
+                  </view>
+                  <view class='ask-time'>2019/5/19</view>
+              </view>
+              <view class='ask-detail'>
+                <text class='ask-tit'>在2019年下半年的旺季即将来临，大卖小白们是如何布局的？</text>
+                <text class='ask-icon'>精</text>
+                <view class='ask-cont'>电信网络电脑经常无法进入后台 不要说处理订单了 正常的运营都很难开展 大家有遇到同样情况的吗？</view>
+              </view>
+              <view class='all-comment'>
+                <text class='reply'>Maliya</text><text>：小白，沙发已经搬好，坐等大神分享</text>
+                <view class='res-reply'>共1条回答></view>
+              </view>
+            </view>
+            <view class='ask-wapper'>
+              <view class='ask-item'>
+                  <view class='ask-avater'>
+                    <image class='ask-img' src='https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/243248e788b1e4b88de7bb9de8bfb95854.jpg'></image>
+                  </view>
+                  <view class='ask-user'>
+                    <view class='ask-user-name'>Lisa</view>
+                    <view class='ask-user-info'>问答高手</view>
+                  </view>
+                  <view class='ask-time'>2019/5/19</view>
+              </view>
+              <view class='ask-detail'>
+                <text class='ask-tit'>在2019年下半年的旺季即将来临，大卖小白们是如何布局的？</text>
+                <text class='ask-icon'>精</text>
+                <view class='ask-cont'>电信网络电脑经常无法进入后台 不要说处理订单了 正常的运营都很难开展 大家有遇到同样情况的吗？</view>
+              </view>
+              <view class='all-comment'>
+                <text class='reply'>Maliya</text><text>：小白，沙发已经搬好，坐等大神分享</text>
+                <view class='res-reply'>共1条回答></view>
+              </view>
+            </view>
+            <view class='ask-wapper'>
+              <view class='ask-item'>
+                  <view class='ask-avater'>
+                    <image class='ask-img' src='https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/243248e788b1e4b88de7bb9de8bfb95854.jpg'></image>
+                  </view>
+                  <view class='ask-user'>
+                    <view class='ask-user-name'>Lisa</view>
+                    <view class='ask-user-info'>问答高手</view>
+                  </view>
+                  <view class='ask-time'>2019/5/19</view>
+              </view>
+              <view class='ask-detail'>
+                <text class='ask-tit'>在2019年下半年的旺季即将来临，大卖小白们是如何布局的？</text>
+                <text class='ask-icon'>精</text>
+                <view class='ask-cont'>电信网络电脑经常无法进入后台 不要说处理订单了 正常的运营都很难开展 大家有遇到同样情况的吗？</view>
+              </view>
+              <view class='all-comment'>
+                <text class='reply'>Maliya</text><text>：小白，沙发已经搬好，坐等大神分享</text>
+                <view class='res-reply'>共1条回答></view>
+              </view>
+            </view>
+            <view class='ask-wapper'>
+              <view class='ask-item'>
+                  <view class='ask-avater'>
+                    <image class='ask-img' src='https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/243248e788b1e4b88de7bb9de8bfb95854.jpg'></image>
+                  </view>
+                  <view class='ask-user'>
+                    <view class='ask-user-name'>Lisa</view>
+                    <view class='ask-user-info'>这是高手</view>
+                  </view>
+                  <view class='ask-time'>2019/5/19</view>
+              </view>
+              <view class='ask-detail'>
+                <text class='ask-tit'>在2019年下半年的旺季即将来临，大卖小白们是如何布局的？</text>
+                <text class='ask-icon'>精</text>
+                <view class='ask-cont'>电信网络电脑经常无法进入后台 不要说处理订单了 正常的运营都很难开展 大家有遇到同样情况的吗？</view>
+              </view>
+              <view class='all-comment'>
+                <text class='reply'>Maliya</text><text>：小白，沙发已经搬好，坐等大神分享</text>
+                <view class='res-reply'>共100条回答></view>
+              </view>
+            </view>
+            <view>555555</view>
+            <view>555555</view>
+            <view>555555</view>
+          </scroll-view>
+        </swiper-item>
+        <swiper-item class='ask-list'>
+          <view class='ask-wapper'>
+            <view class='ask-item'>
+                <view class='ask-avater'>
+                  <image class='ask-img' src='https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/243248e788b1e4b88de7bb9de8bfb95854.jpg'></image>
+                </view>
+                <view class='ask-user'>
+                  <view class='ask-user-name'>Lisa</view>
+                  <view class='ask-user-info'>问答高手</view>
+                </view>
+                <view class='ask-time'>2019/5/19</view>
+            </view>
+            <view class='ask-detail'>
+              <text class='ask-tit'>在2019年下半年的旺季即将来临，大卖小白们是如何布局的？</text>
+              <text class='ask-icon'>精</text>
+              <view class='ask-cont'>电信网络电脑经常无法进入后台 不要说处理订单了 正常的运营都很难开展 大家有遇到同样情况的吗？</view>
+            </view>
+            <view class='all-comment'>
+              <text class='reply'>Maliya</text><text>：小白，沙发已经搬好，坐等大神分享</text>
+              <view class='res-reply'>共1条回答></view>
+            </view>
+          </view>
+        </swiper-item>
+        <swiper-item class='ask-list'>
+          <view class='ask-wapper'>
+            <view class='ask-item'>
+                <view class='ask-avater'>
+                  <image class='ask-img' src='https://gss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/243248e788b1e4b88de7bb9de8bfb95854.jpg'></image>
+                </view>
+                <view class='ask-user'>
+                  <view class='ask-user-name'>Lisa</view>
+                  <view class='ask-user-info'>问答高手</view>
+                </view>
+                <view class='ask-time'>2019/5/19</view>
+            </view>
+            <view class='ask-detail'>
+              <text class='ask-tit'>在2019年下半年的旺季即将来临，大卖小白们是如何布局的？</text>
+              <text class='ask-icon'>精</text>
+              <view class='ask-cont'>电信网络电脑经常无法进入后台 不要说处理订单了 正常的运营都很难开展 大家有遇到同样情况的吗？</view>
+            </view>
+            <view class='all-comment'>
+              <text class='reply'>Maliya</text><text>：小白，沙发已经搬好，坐等大神分享</text>
+              <view class='res-reply'>共1条回答></view>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </swiper-item>
+
+    <!-- 专题 -->
+    <swiper-item>
+      <scroll-view scroll-x class='tabBar-h'>
+        <view wx:for="{{resData.answerTab}}" id="ss{{index}}" wx:key="index" data-current="{{index}}" class="tabBar-item {{currentIndex==index ? 'active' : ''}}" bindtap="contentSwitch">33{{item}}</view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

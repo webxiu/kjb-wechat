@@ -7,7 +7,7 @@
       <text wx:if="{{cityInfo}}">{{cityInfo}}</text>
       <text wx:else>中国</text>
     </view>
-    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <scroll-view scroll-x="true" class="tab-h">
       <!-- <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="switchTab">健康</view> -->
       <view wx:for="{{navbar}}" wx:key="index" data-current="{{index}}" class="tab-item {{currentTab==index ? 'active' : ''}}" bindtap="switchTab">{{item}}</view>
     </scroll-view>

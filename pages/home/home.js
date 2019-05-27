@@ -2,23 +2,22 @@
 //获取应用实例
 const app = getApp()
 // 引用百度地图微信小程序JSAPI模块 
-let bmap = require('../../utils/bmap-wx/bmap-wx.js'); 
-let wxMarkerData = []; 
+let bmap = require('../../utils/bmap-wx/bmap-wx.js');
+let wxMarkerData = [];
 
 Page({
   data: {
     // latitude: '',//纬度
     // longitude: '',//经度
-    cityInfo:'',//城市
-    ak:'IRBjqkxwTfdjMxrxQ8YpW4AQalWj16xp',//app-key
+    cityInfo: '', //城市
+    ak: 'IRBjqkxwTfdjMxrxQ8YpW4AQalWj16xp', //app-key
     canIUse: wx.canIUse('button.open-type.openSetting'),
-    showTip: false,//授权弹窗,默认不显示
+    showTip: false, //授权弹窗,默认不显示
 
 
 
     navbar: ['推荐', '动态'],
     currentTab: 0, //预设当前项的值
-    scrollLeft: 0, //tab标题的滚动条位置  
     maskLayer: false, //添加动态遮罩层
     isEject: false, //是否弹出
     animMove: {}, //平移,透明还原
@@ -106,6 +105,33 @@ Page({
           'http://kuajingbang.oss-cn-shenzhen.aliyuncs.com/2019/05/09/0616/NqgMg8lqfszIC6RdYQKEIQiepBA7nMqxhEdZXVYL.png?x-oss-process=image%2Fquality%2Cq_40%2Fauto-orient%2C1',
           'http://kuajingbang.oss-cn-shenzhen.aliyuncs.com/2019/05/16/0832/0apMpK2bodbb6ctgkKdV0qc55CGvNZgXJl1bWfum.png?x-oss-process=image%2Fquality%2Cq_40%2Fauto-orient%2C1',
           'http://kuajingbang.oss-cn-shenzhen.aliyuncs.com/2019/05/09/0616/NqgMg8lqfszIC6RdYQKEIQiepBA7nMqxhEdZXVYL.png?x-oss-process=image%2Fquality%2Cq_40%2Fauto-orient%2C1',
+        ]
+      },
+      {
+        userPic: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw==',
+        user: 'ellimy',
+        time: '2小时前',
+        title: '99人类文明的「蝇王」式困境看了黄渤的《一出好戏》，无端地想起了《蝇王》，虽然这不是他剧本的原型，美剧《迷失》和特稿《太平洋逃杀记》更接近于他对于故事的想象。但《一出好戏》的剧本结构能与《蝇王》相互参照。一群人因遭厄运流落到孤岛，被困在前文明的环境里。两个故事中的人们，起初协力劳作，荜路蓝蒌，以处草莽。可是脱离人类社会愈久，内心的道德感和约束力量也就愈弱，人的动物性的那面开始浮现',
+        img: [
+          'http://kuajingbang.oss-cn-shenzhen.aliyuncs.com/2019/05/16/0832/0Mo4fNBAZ8OPhhO0GRDUnyCqygYPwrNthigRy1MV.png?x-oss-process=image%2Fquality%2Cq_40%2Fauto-orient%2C1',
+        ]
+      },
+      {
+        userPic: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw==',
+        user: 'ellimy',
+        time: '2小时前',
+        title: '99人类文明的「蝇王」式困境看了黄渤的《一出好戏》，无端地想起了《蝇王》，虽然这不是他剧本的原型，美剧《迷失》和特稿《太平洋逃杀记》更接近于他对于故事的想象。但《一出好戏》的剧本结构能与《蝇王》相互参照。一群人因遭厄运流落到孤岛，被困在前文明的环境里。两个故事中的人们，起初协力劳作，荜路蓝蒌，以处草莽。可是脱离人类社会愈久，内心的道德感和约束力量也就愈弱，人的动物性的那面开始浮现',
+        img: [
+          'http://kuajingbang.oss-cn-shenzhen.aliyuncs.com/2019/05/16/0832/0Mo4fNBAZ8OPhhO0GRDUnyCqygYPwrNthigRy1MV.png?x-oss-process=image%2Fquality%2Cq_40%2Fauto-orient%2C1',
+        ]
+      },
+      {
+        userPic: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw==',
+        user: 'ellimy',
+        time: '2小时前',
+        title: '99人类文明的「蝇王」式困境看了黄渤的《一出好戏》，无端地想起了《蝇王》，虽然这不是他剧本的原型，美剧《迷失》和特稿《太平洋逃杀记》更接近于他对于故事的想象。但《一出好戏》的剧本结构能与《蝇王》相互参照。一群人因遭厄运流落到孤岛，被困在前文明的环境里。两个故事中的人们，起初协力劳作，荜路蓝蒌，以处草莽。可是脱离人类社会愈久，内心的道德感和约束力量也就愈弱，人的动物性的那面开始浮现',
+        img: [
+          'http://kuajingbang.oss-cn-shenzhen.aliyuncs.com/2019/05/16/0832/0Mo4fNBAZ8OPhhO0GRDUnyCqygYPwrNthigRy1MV.png?x-oss-process=image%2Fquality%2Cq_40%2Fauto-orient%2C1',
         ]
       },
       {
@@ -246,7 +272,7 @@ Page({
     this.takeback()
   },
   //文本框
-  getText(){
+  getText() {
     wx.navigateTo({
       url: '/pages/publish/publish'
     })
@@ -269,7 +295,7 @@ Page({
             sourceType: ['album', 'camera'],
             success: function(res) { //成功
               console.log('获取相册成功:', res.tempFilePaths.length);
-               //隐藏遮罩
+              //隐藏遮罩
               _this.setData({
                 maskLayer: false
               })
@@ -380,13 +406,13 @@ Page({
 
   },
   //地图API
-  coord_Map(){
+  coord_Map() {
     var _this = this;
     // 获取地理位置,/新建bmap
     var BMap = new bmap.BMapWX({
       ak: _this.data.ak
     });
-    var fail = function (data) {
+    var fail = function(data) {
       // wx.showToast({
       //   title: '获取位置失败',
       //   icon: 'none',
@@ -398,9 +424,9 @@ Page({
         showTip: true,
       })
     }
-    var success = function (data) {
-      console.log('成功数据', data);//返回数据内，已经包含经纬度
-      wxMarkerData = data.wxMarkerData;//使用wxMarkerData获取数据
+    var success = function(data) {
+      console.log('成功数据', data); //返回数据内，已经包含经纬度
+      wxMarkerData = data.wxMarkerData; //使用wxMarkerData获取数据
 
       // 全局设置经城市
       app.globalData.cityInfo = data.originalData.result.addressComponent.city
@@ -427,10 +453,10 @@ Page({
     });
   },
   // 确定 位置授权
-  getLocation(){
+  getLocation() {
     let _this = this;
     wx.getLocation({
-      type: 'wgs84',//wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
+      type: 'wgs84', //wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
       success(res) {
         wx.showToast({
           title: '授权成功!',
@@ -447,12 +473,12 @@ Page({
         _this.setData({
           // latitude: latitude,
           // longitude: longitude,
-          showTip:false,
+          showTip: false,
         })
 
       },
-      fail: function (err) {
-        console.log('拒绝授权',err)
+      fail: function(err) {
+        console.log('拒绝授权', err)
         wx.showToast({
           title: '拒绝授权',
           icon: 'none',
@@ -462,8 +488,8 @@ Page({
 
     })
   },
-  onShow:function(){
-    this.coord_Map();//调用 地址获取方法
+  onShow: function() {
+    this.coord_Map(); //调用 地址获取方法
   },
   onLoad: function() {
     let _this = this;
@@ -484,11 +510,11 @@ Page({
 
     //获取位置
     wx.getSetting({
-      success:function(res){
-        if (res.authSetting['scope.userLocation'] != undefined || res.authSetting['scope.userLocation'] != true){
-          _this.coord_Map();// 调用 地址获取方法
-          console.log('授权成功2',res)
-        }else{
+      success: function(res) {
+        if (res.authSetting['scope.userLocation'] != undefined || res.authSetting['scope.userLocation'] != true) {
+          _this.coord_Map(); // 调用 地址获取方法
+          console.log('授权成功2', res)
+        } else {
           // console.log('授权失败', res)
           wx.showToast({
             title: '授权失败了哦',

@@ -18,7 +18,7 @@ Page({
    */
   onLoad: function (options) {
 
-    console.log(options,app.globalData.userInfo);
+    console.log('获取用户',options,app.globalData.userInfo);
     if (options.picture){
       console.log('图片跳转')
       let picStr = options.picture;//获取图片
@@ -178,36 +178,40 @@ Page({
   },
   // 发布
   submitForm(e){
-    console.log(11, e.detail.value)
-    let txt = e.detail.value;
-    this.uploadData(txt);
+    let text = e.detail.value;//获取输入框文本
+    this.uploadData(text);
   },
-  uploadData(txt){
+  uploadData(text){
     // 获取用户
-    console.log('获取用户', app.globalData.userInfo)
+    let userName = app.globalData.userInfo.nickName;//用户名
     let userInfo = app.globalData.userInfo;
-    if (!userInfo){
+    let checkVal =this.data.checkVal;//选择框(安全协议)
+
+    let img = this.data.imgUrl;   //图片
+    let video = this.data.video;   //视频
+
+    if (!userName){
       wx.showToast({
         title: '请先登录',
       })
-      //跳转去登录页面
+      //弹出登录授权提示
       return;
     }
-    let userName = app.globalData.userInfo.nickName;//用户名
-    let checkVal =this.data.checkVal;//选择框(安全协议)
+    if (!text.msg.length) {
+      wx.showToast({
+        title: '没有输入内容',
+      })
+      return;
+    }
     if (!checkVal) {
       wx.showToast({
         title: '未同意用户协议',
       })
       return;
     }
-    console.log(userName)
-    if (!userName) return;
-    if (checkVal) return;
-    let img = this.data.imgUrl;   //图片
-    let video = this.data.video;   //视频
+
     let param = {
-      text: txt,//发布内容
+      text: text,//发布内容
       img: img,//获取上传的图片链接数组
       video: video,//获取上传的图片链接数组
       userName: userName,

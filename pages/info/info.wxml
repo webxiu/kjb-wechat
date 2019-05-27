@@ -1,78 +1,104 @@
-<!--index.wxml-->
-<view class='find'>
-  <view class='home-tab'>
+<!--find.wxml-->
+<view class='containner'>
+  <!-- 头部 -->
+  <view class='swich-box'>
     <!-- tab标题 -->
-    <!-- <view class='home-location'><icon class="iconfont icon-map"></icon>中国</view> -->
-    <scroll-view scroll-x="true" class="tab-h">
+    <scroll-view scroll-x="true" class="swich-tab">
       <view class='border-type'>
-        <view wx:for="{{navbar}}" wx:key="index" data-current="{{index}}" class="tab-item {{currentTab==index ? 'selected' : ''}}" bindtap="swichNav">{{item}}</view>
+        <view wx:for="{{theme}}" wx:key="index" data-current="{{index}}" class="tab-item {{currentTab==index ? 'selected' : ''}}" bindtap="clickTab">{{item}}</view>
       </view>
     </scroll-view>
-    <!-- 搜索与添加 -->
-    <view class='home-add'>
-      <icon class="iconfont icon-sousuo"></icon>
-      <icon class="iconfont icon-bianji2" style="margin-left:20rpx;"></icon>
+    <!-- 搜索 -->
+    <view class='tab-right'>
+      <text class="">搜索</text>
     </view>
-    <!-- tab内容 -->
-    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
-      <!-- 资讯 -->
-      <swiper-item>
-        <scroll-view scroll-y="true" class="scoll-h">
-          <!-- 轮播 -->
-          <view class='banner'>
-            <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
-              <block wx:for="{{banner}}" wx:key="index">
-                <swiper-item style="height:100%">
-                  <image src="{{item}}" class="slide-image" style='width:100%;height:100%;display:block' />
-                </swiper-item>
-              </block>
-            </swiper>
-          </view>
-          <!-- tabBar选项卡 -->
-          <view class='tab-list'>
-            <!-- 选项卡标题 -->
-            <scroll-view scroll-x="true" scroll-into-view="ss{{toChildView}}" scroll-with-animation class="tabBar-h">
-              <view wx:for="{{tabBar}}" id="ss{{index}}" wx:key="index" data-current="{{index}}" class="tabBar-item {{currentIndex==index ? 'active' : ''}}" bindtap="switchItem">{{item}}</view>
-            </scroll-view>
-            <!-- 内容 -->
-            <swiper class="tab-content" current="{{currentIndex}}" duration="300" bindchange="swiperChange" style="height:{{winHeight2}}rpx">
-              <swiper-item wx:for="{{tabContent}}" wx:key="index" wx:for-item="article">
-                <scroll-view scroll-y="true" class="scoll-h">
-                  <view class='dyn-article-item'>
-                    <view class='article-left'>
-                      <text class='article-content'>{{article.artContent}}</text>
-                      <view class='article-info'>
-                        <text class='art-mark'>跨境闲聊</text>
-                        <text style='margin-left:5rpx;'>{{article.artTime}}天前</text> ·
-                        <text>{{article.artUser}}</text> ·
-                        <text>{{article.artScan}} 浏览</text>
-                      </view>
-                    </view>
-                    <view class='article-right'>
-                      <view class='article-img-box'>
-                        <image class="article-img" src='{{article.artImage}}'></image>
-                      </view>
-                    </view>
-                  </view>
-                </scroll-view>
-              </swiper-item>
-            </swiper>
-          </view>
-
-        </scroll-view>
-      </swiper-item>
-      <!-- 实操 -->
-      <swiper-item>
-        <block>
-          <scroll-view scroll-y="true " class="scoll-h ">
-            <!-- 搜索 -->
-            <view class='search-bg'>实操</view>
-
-          </scroll-view>
-        </block>
-      </swiper-item>
-
+  </view>
+  <!-- 轮播 -->
+  <view class='banner'>
+    <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="true" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+      <block wx:for="{{banner}}" wx:key="index">
+        <swiper-item style="height:100%">
+          <image src="{{item}}" class="slide-image" style='width:100%;height:100%;display:block' />
+        </swiper-item>
+      </block>
     </swiper>
   </view>
+  <!-- ********************内容********************* -->
+  <swiper current="{{currentTab}}" duration="300" scroll-x bindchange="switchTab" class="swiper-box"  style="height:{{winHeight}}rpx">
+    <!-- 资讯 -->
+    <swiper-item>
+      <scroll-view scroll-x class='tabBar-h' scroll-with-animation scroll-into-view="ss{{toChildView}}">
+        <view wx:for="{{infoFast}}" id="ss{{index}}" 
+          wx:key="index" data-current="{{index}}" 
+          class="tabBar-item {{currentIndex==index ? 'active' : ''}}" 
+          bindtap="contentClick">{{item}}</view>
+      </scroll-view>
+      <swiper scroll-x current="{{currentIndex}}" duration="300" bindchange='contentSwitch' style="height:{{winHeight}}rpx">
+        <!-- 内容列表 -->
+        <swiper-item class='ask-list' wx:for="{{tabContent}}" wx:key="index" wx:for-item="article">
+          <scroll-view scroll-y style="height:{{winHeight}}rpx">
+            <view class='dyn-article-item' wx:for="{{article.infos}}" wx:key="index" wx:for-item="csll">
+              <view class='article-left'>
+                <text class='article-content'>{{csll.artContent}}</text>
+                <view class='article-info'>
+                  <text class='art-mark'>跨境闲聊</text>
+                  <text style='margin-left:5rpx;'>{{csll.artTime}}天前</text> ·
+                  <text>{{csll.artUser}}</text> ·
+                  <text>{{csll.artScan}} 浏览</text>
+                </view>
+              </view>
+              <view class='article-right'>
+                <view class='article-img-box'>
+                  <image class="article-img" src='{{csll.artImage}}'></image>
+                </view>
+              </view>
+            </view>
+            
+            <view>555555</view>
+            <view>555555</view>
+            <view>555555</view>
+          </scroll-view>
+        </swiper-item>
+       
+      </swiper>
+    </swiper-item>
 
+    <!-- 实操 -->
+     <swiper-item>
+      <scroll-view scroll-x class='tabBar-h' scroll-with-animation scroll-into-view="ss{{toChildView}}">
+        <view wx:for="{{optActual}}" id="ss{{index}}" 
+          wx:key="index" data-current="{{index}}" 
+          class="tabBar-item {{currentIndex==index ? 'active' : ''}}" 
+          bindtap="contentClick">{{item}}</view>
+      </scroll-view>
+      <swiper scroll-x current="{{currentIndex}}" duration="300" bindchange='contentSwitch' style="height:{{winHeight}}rpx">
+        <!-- 内容列表 -->
+        <swiper-item class='ask-list' wx:for="{{tabContent}}" wx:key="index" wx:for-item="article">
+          <scroll-view scroll-y style="height:{{winHeight}}rpx">
+            <view class='dyn-article-item' wx:for="{{article.infos}}" wx:key="index" wx:for-item="csll">
+              <view class='article-left'>
+                <text class='article-content'>{{csll.artContent}}</text>
+                <view class='article-info'>
+                  <text class='art-mark'>跨境闲聊</text>
+                  <text style='margin-left:5rpx;'>{{csll.artTime}}天前</text> ·
+                  <text>{{csll.artUser}}</text> ·
+                  <text>{{csll.artScan}} 浏览</text>
+                </view>
+              </view>
+              <view class='article-right'>
+                <view class='article-img-box'>
+                  <image class="article-img" src='{{csll.artImage}}'></image>
+                </view>
+              </view>
+            </view>
+            
+            <view>555555</view>
+            <view>555555</view>
+            <view>555555</view>
+          </scroll-view>
+        </swiper-item>
+       
+      </swiper>
+    </swiper-item>
+  </swiper>
 </view>

@@ -17,12 +17,12 @@ Page({
   onLoad(options) {
     console.log('faxian',options)
   },
-    //打电话
-    tell: function() {
-        wx.makePhoneCall({
-            phoneNumber: '13268770898' //仅为示例，并非真实的电话号码
-        })
-    },
+  toAnswer(e){
+    let txt = e.target.dataset.txt;
+    wx.navigateTo({
+      url: '/pages/answer/answer?title=' + txt
+    })
+  }
 
    
 })
