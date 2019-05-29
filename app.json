@@ -8,6 +8,8 @@
     
     "pages/publish/publish",
     "pages/answer/answer",
+    "pages/social/social",
+    "pages/search/search",
     "pages/test/test",
     "pages/logs/logs"
   ],

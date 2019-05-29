@@ -583,6 +583,20 @@
   width: 100%;
   height: 100%;
 }
+
+/* 视频 */
+.video{
+  width: 100%;
+  display: block;
+}
+
+.show{
+   display:show;
+}
+.hide{
+   display:none;
+}
+
 /*加载完了*/
 .ending{
   padding:30rpx 0;

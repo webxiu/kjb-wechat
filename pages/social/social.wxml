@@ -1,0 +1,50 @@
+<!--find.wxml-->
+<!-- 头部 -->
+<view class='containner'>
+  <view class='soc-header'>
+    <view class='soc-search'>
+      <input class='soc-input' placeholder="搜索社区" />
+    </view>
+    <view class='soc-head-add'></view>
+  </view>
+  <!-- 加入 -->
+  <view class='soc-join'>
+    <view class='soc-join-item'>
+      <text class='soc-join-tit'><text class='soc-join-num'>7</text>个小组,等待你的加入!</text>
+      <view class='soc-join-add'>
+        <text class='soc-join-more'>查看全部</text>
+      </view>
+    </view>
+    <view class='soc-join-item'>
+      <text class='soc-join-my'>我加入的</text>
+      <view class='soc-join-add'>
+        <!-- <text class='soc-join-more'>查看全部</text> -->
+      </view>
+    </view>
+
+  </view>
+  <!-- 热门推荐 -->
+  <view class='soc-recommend'>
+    <view class='soc-recommend-pro'>
+      <text class='soc-recomend-tit'>热门推荐</text>
+      <view class='soc-recomend-change'>换一批</view>
+    </view>
+    <view class='soc-item' wx:for="{{groups}}" wx:key="index">
+      <view class='soc-group-info' bindtap='groupDetail'>
+      <view class='soc-avater'>
+        <!-- 头像 -->
+        <image class='soc-img' src='{{item.image}}'></image>
+      </view>
+      <view class='soc-user'>
+        <view class='soc-join-name'>{{item.title}}</view>
+        <view class='soc-detail'>
+          <text class='soc-txt'>帖子 <text class='clo'>{{item.article}}</text></text>
+          <text class='soc-people'>成员 <text class='clo'>{{item.member}}</text></text>
+        </view>
+      </view>
+      </view>
+      <view class='soc-add' bindtap='joinGroup'>加入</view>
+    </view>
+  </view>
+
+</view>

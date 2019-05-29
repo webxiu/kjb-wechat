@@ -51,12 +51,12 @@
 				{
 					"id": 0,
 					"name": "当前",
-					"pathName": "pages/info/info",
+					"pathName": "pages/search/search",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "测试",
 					"pathName": "pages/test/test",
 					"query": "",

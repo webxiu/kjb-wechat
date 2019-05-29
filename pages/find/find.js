@@ -17,11 +17,22 @@ Page({
   onLoad(options) {
     console.log('faxian',options)
   },
+
   toAnswer(e){
     let txt = e.target.dataset.txt;
-    wx.navigateTo({
-      url: '/pages/answer/answer?title=' + txt
-    })
+    console.log(222,txt)
+
+    if(txt == '问答'){
+      wx.navigateTo({
+        url: '/pages/answer/answer?title=' + txt
+      })
+    }
+
+    if (txt == '社区') {
+      wx.navigateTo({
+        url: '/pages/social/social?title=' + txt
+      })
+    }
   }
 
    

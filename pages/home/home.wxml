@@ -52,7 +52,7 @@
   <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="swiperChange" style="height:{{winHeight}}rpx">
     <!-- <swiper-item wx:for="{{productData}}" wx:for-item="items" wx:key="indexs"> -->
     <!-- 推荐 -->
-    <swiper-item>
+    <swiper-item style="z-index:-22;">
       <scroll-view scroll-y="true" class="scoll-h">
         <view class='cont'>
           <!-- 首页轮播 -->
@@ -117,7 +117,7 @@
       </scroll-view>
     </swiper-item>
     <!-- 动态 -->
-    <swiper-item>
+    <swiper-item style="overflow:hidden;">
       <scroll-view scroll-y="true">
         <view class='cont'>
           <view class='active-list' wx:for="{{activity}}" wx:key="index" wx:for-item="act" wx:for-index="outer">
@@ -132,11 +132,17 @@
               <view class='follow-me'>+关注</view>
             </view>
             <view class='active-list-item'>
-              <text class='item-tit'>{{act.title}}</text>
-              <view wx:for="{{act.img}}" wx:for-item="img" wx:for-index="inner" wx:key="inner" class="item-img img-width{{act.img.length==1?'1': (act.img.length==2?'2':'3')}}">
+              <text class='item-tit'>{{winWidth}}==={{act.title}}</text>
+              <!-- 图片 -->
+              <view wx:if="{{act.isImage}}" wx:for="{{act.img}}" wx:for-item="img" wx:for-index="inner" wx:key="inner" class="item-img img-width{{act.img.length==1?'1': (act.img.length==2?'2':'3')}}">
                 <view class='item-img-cell'>
                   <view class='item-img-pic' bindtap='previewImage' data-outer="{{outer}}" data-inner="{{inner}}" data-link="{{img}}" style="background-image:url('{{img}}')"></view>
                 </view>
+              </view>
+              <!-- 视频 -->
+            
+              <view wx:esle wx:for="{{act.vdo}}" wx:for-item="vdo" class="item-img img-width{{act.vdo.length==1?'1': (act.vdo.length==2?'2':'3')}}">
+                <video src="{{vdo.video}}" class='video' poster="{{vdo.poster}}" controls="{{controls}}" autoplay="{{autoplay}}" custom-cache="true" enable-play-gesture="{{enablePlayGesture}}" show-mute-btn="{{showMuteBtn}}" style="height:{{act.vdo.length==1 ? winWidth : (act.vdo.length==2 ? winWidth/2 : winWidth/3)}}px"></video>
               </view>
             </view>
           </view>

@@ -1,0 +1,55 @@
+.containner{
+  background: #fff;
+}
+.menu{
+  flex-direction: row;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding: 10rpx 0 10rpx 20rpx;
+  box-sizing: border-box;
+  background: #eee;
+  overflow: hidden;
+}
+.input{
+  padding: 10rpx 10rpx 10rpx 20rpx;
+  width: 100%;
+  background: #fff;
+  font-size: 32rpx;
+}
+.btn{
+  width: 160rpx;
+  border: none;
+  color: #ff2741;
+  background: #eee;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  
+}
+button::after{ border: none; }
+.recoder{
+  overflow: hidden;
+  clear: both;
+  margin: 20rpx;
+}
+.history{
+  float: left;
+  font-size: 30rpx;
+  font-weight: 700;
+  
+}
+.clearHistory{
+  float: right;
+  font-size: 30rpx;
+  color: #ff2741;
+
+}
+.search-history{
+  background: #eee;
+  font-size: 30rpx;
+  float: left;
+  margin: 10rpx 20rpx;
+  padding:2rpx 10rpx;
+  border-radius: 8rpx;
+}

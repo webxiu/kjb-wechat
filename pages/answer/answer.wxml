@@ -5,17 +5,18 @@
     <!-- tab标题 -->
     <scroll-view scroll-x="true" class="swich-tab">
       <view class='border-type'>
-        <view wx:for="{{answer.title}}" wx:key="index" data-current="{{index}}" class="tab-item {{currentTab==index ? 'selected' : ''}}" bindtap="clickTab">{{item}}</view>
+        <view wx:for="{{topTitle}}" wx:key="index" data-current="{{index}}" class="tab-item {{currentTab==index ? 'selected' : ''}}" bindtap="clickTab">{{item}}</view>
       </view>
     </scroll-view>
     <!-- 搜索 -->
     <view class='tab-right'>
-      <text class="">搜索</text>
+      <text class="answerSearch" bindtap='answerSearch'></text>
     </view>
   </view>
 
   <!-- ********************内容********************* -->
   <swiper current="{{currentTab}}" duration="300" scroll-x bindchange="switchTab"class="swiper-box"  style="height:{{winHeight}}rpx">
+    <!-- 问答 -->
     <swiper-item>
       <scroll-view scroll-x class='tabBar-h' scroll-with-animation scroll-into-view="ss{{toChildView}}">
         <view wx:for="{{resData.answerTab}}" id="ss{{index}}" 
@@ -211,12 +212,62 @@
         </swiper-item>
       </swiper>
     </swiper-item>
-
     <!-- 专题 -->
     <swiper-item>
-      <scroll-view scroll-x class='tabBar-h'>
-        <view wx:for="{{resData.answerTab}}" id="ss{{index}}" wx:key="index" data-current="{{index}}" class="tabBar-item {{currentIndex==index ? 'active' : ''}}" bindtap="contentSwitch">33{{item}}</view>
+      <scroll-view scroll-x class='subBar-h' scroll-with-animation scroll-into-view="ss{{toChildView2}}">
+      <view class='sub-item-box'>
+        <view wx:for="{{subData.subjectTab}}" id="ss{{index}}" wx:key="index" data-current="{{index}}"  class="subBar-item {{currentIndex2==index ? 'active' : ''}}" bindtap="subjuctClick">{{item}}</view>
+      
+      </view>
       </scroll-view>
+      <swiper scroll-x current="{{currentIndex2}}" duration="300" bindchange='subjuctSwitch' style="height:{{winHeight}}rpx">
+        <!-- 全部专题 -->
+        <swiper-item class='ask-list'>
+          <scroll-view scroll-y style="height:{{winHeight}}rpx">
+            <!-- 专题列表 -->
+            <view class='soc-item' wx:for="{{subData.groups}}" wx:key="index">
+              <view class='soc-group-info' bindtap='groupDetail'>
+              <view class='soc-avater'>
+                <!-- 头像 -->
+                <image class='soc-img' src='{{item.image}}'></image>
+              </view>
+              <view class='soc-user'>
+                <view class='soc-join-name'>{{item.title}}</view>
+                <view class='soc-detail'>
+                  <text class='soc-txt'><text class='clo'>{{item.article}} </text>关注</text>·
+                  <text class='soc-people'><text class='clo'>{{item.member}} </text>问题</text>
+                </view>
+              </view>
+              </view>
+              <view class='soc-add' bindtap='joinGroup'>加入</view>
+            </view>
+            <view class='no-more'>没有更多了</view>
+          </scroll-view>
+        </swiper-item>
+        <!-- 我关注的 -->
+        <swiper-item class='ask-list'>
+          <scroll-view scroll-y style="height:{{winHeight}}rpx">
+            <!-- 专题列表 -->
+            <view class='soc-item' wx:for="{{subData.myGroups}}" wx:key="index">
+              <view class='soc-group-info' bindtap='groupDetail'>
+              <view class='soc-avater'>
+                <!-- 头像 -->
+                <image class='soc-img' src='{{item.image}}'></image>
+              </view>
+              <view class='soc-user'>
+                <view class='soc-join-name'>{{item.title}}</view>
+                <view class='soc-detail'>
+                  <text class='soc-txt'><text class='clo'>{{item.article}} </text>关注</text>·
+                  <text class='soc-people'><text class='clo'>{{item.member}} </text>问题</text>
+                </view>
+              </view>
+              </view>
+              <view class='soc-add' bindtap='joinGroup'>加入</view>
+            </view>
+            <view class='no-more'>没有更多了</view>
+          </scroll-view>
+        </swiper-item>
+      </swiper>
     </swiper-item>
   </swiper>
 </view>

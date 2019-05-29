@@ -1,0 +1,17 @@
+<view class='containner'>
+  <form class='xf_box'>
+    <view class="menu">
+      <input class='search' placeholder='输入商品名称' class='input' bindinput='input_txt' bindconfirm='btn_search' value='{{searchValue}}'></input>
+      <button class='btn' bindtap='btn_search'>搜索</button>
+    </view>
+    <view wx:if="{{showHistory}}" class='recoder'>
+      <view class='history'>搜索历史</view>
+      <view class='clearHistory' bindtap='deleteHistory' wx:if="{{showHistory}}">清除</view>
+    </view>
+    <view class='h_con' wx:if="{{showHistory}}">
+      <view class='h_con1'>
+        <view class="search-history" wx:for="{{history}}" wx:key="index" bindtap='toSearch' data-value='{{item}}' data-index="{{index}}">{{item}}</view>
+      </view>
+    </view>
+  </form>
+</view>

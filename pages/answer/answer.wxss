@@ -16,11 +16,29 @@
   line-height: 96rpx;
 }
 .tab-right {
-  height: 96rpx;
   position: absolute;
-  right: 10rpx;
-  top: 0;
-  line-height: 96rpx;
+  right: 12rpx;
+  top: 16rpx;
+}
+/* 搜索 */
+.answerSearch{
+  display: inline-block;
+  height: 80rpx;
+  width: 80rpx;
+
+}
+.answerSearch::after{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 8rpx;
+  right: 14rpx;
+  width:60rpx;
+  height: 60rpx;
+  background: url(https://mini.eastday.com/assets/images/icon_search.png) no-repeat;
+  background-size: 100%;
+
+
 }
 .border-type {
   background: #fff;
@@ -48,14 +66,6 @@
 
 /*内容*/
 /* 选项卡 */
-.tabBar-item {
-  margin: 0 20rpx;
-  display: inline-block;
-}
-.tabBar-item.active {
-  color: #FF2741 ;
-  position: relative;
-}
 .tabBar-h{
   width:100%;
 height:80rpx;
@@ -80,7 +90,8 @@ border-bottom:2rpx solid #f7f7f7;
 
 /* 问答列表 */
 .ask-list{
-  /* background: #fff; */
+  box-sizing:border-box;
+
 }
 .ask-wapper{
   padding:14px 26rpx;
@@ -183,4 +194,127 @@ margin-bottom:12rpx;
 }
 .res-reply{
   margin-top: 8rpx;
+}
+
+
+/* 专题 */
+.subBar-h{
+  width:100%;
+height:80rpx;
+overflow:hidden;
+white-space:nowrap;
+background:#fff;
+padding:10rpx 10rpx;
+box-sizing:border-box;
+border-bottom:2rpx solid #f7f7f7;
+
+
+}
+.sub-item-box{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-direction: row;
+}
+.subBar-item {
+  margin: 0 auto;
+  display: inline-block;
+  border-bottom:4rpx solid transparent;
+}
+.subBar-item.active {
+  color: #FF2741 ;
+  position: relative;
+  border-bottom:4rpx solid #FF2741;
+}
+/* 全部专题 */
+.soc-item {
+  height: 100rpx;
+  overflow: hidden;
+  position: relative;
+  padding: 40rpx 20rpx;
+  border-bottom: 2rpx solid #eee;
+}
+
+.soc-avater, .soc-user {
+  float: left;
+}
+
+.soc-avater {
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+
+.soc-user {
+  margin-left: 20rpx;
+}
+
+.soc-join-name {
+  color: #262625;
+  font-size: 36rpx;
+  margin-bottom: 10rpx;
+}
+
+.soc-user-info {
+  font-size: 32rpx;
+  color: #6e6767;
+}
+
+.soc-txt {
+  margin-right: 8rpx;
+}
+.soc-people {
+  margin-left: 8rpx;
+}
+
+.clo {
+  color: #ff2741;
+}
+
+.soc-img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.soc-detail {
+  color: #919090;
+  font-size: 28rpx;
+}
+
+.soc-add {
+  position:absolute;
+top:60rpx;
+right:20rpx;
+padding-left:50rpx;
+padding-right:18rpx;
+font-size:32rpx;
+color:#ff2741;
+border:2rpx solid #ff2741;
+text-align:center;
+line-height:44rpx;
+border-radius:12rpx;
+height:46rpx;
+
+}
+
+.soc-add::after {
+  content: '+';
+  position: absolute;
+  top: -2rpx;
+  left: 4rpx;
+  font-size: 40rpx;
+  color: #ff2741;
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.no-more{
+  text-align: center;
+  font-size: 24rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #7c7c7c;
 }
