@@ -534,7 +534,12 @@ Page({
   onShow: function() {
     this.coord_Map(); //调用 地址获取方法
   },
-  
+  //查看更多--url跳转
+  lookMore(){
+    wx.navigateTo({
+      url:'/pages/friend/friend'
+    })
+  },
 
   onLoad: function() {
     let _this = this;

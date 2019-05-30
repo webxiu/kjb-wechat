@@ -69,7 +69,7 @@
           <!-- 认识更多人 -->
           <view class="dyn-pub">
             <view class='dyn-people'>您可能想认识的人</view>
-            <view class='dyn-more'>查看更多
+            <view class='dyn-more' bindtap='lookMore'>查看更多
               <icon class='iconfont icon-xiangyou dyn-more-icon'></icon>
             </view>
           </view>

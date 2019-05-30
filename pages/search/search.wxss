@@ -12,10 +12,22 @@
   overflow: hidden;
 }
 .input{
-  padding: 10rpx 10rpx 10rpx 20rpx;
+  padding: 10rpx 60rpx 10rpx 20rpx;
   width: 100%;
   background: #fff;
   font-size: 32rpx;
+  position: relative;
+  border-radius:8rpx;
+
+}
+.input .clear{
+  position: absolute;
+  right: 0rpx;
+  top: 10rpx;
+    width: 56rpx;
+    height: 50rpx;
+    z-index: 222;
+    
 }
 .btn{
   width: 160rpx;
@@ -37,6 +49,7 @@ button::after{ border: none; }
   float: left;
   font-size: 30rpx;
   font-weight: 700;
+  color: #666;
   
 }
 .clearHistory{
@@ -52,4 +65,6 @@ button::after{ border: none; }
   margin: 10rpx 20rpx;
   padding:2rpx 10rpx;
   border-radius: 8rpx;
+  color:rgb(167, 161, 161);
+
 }

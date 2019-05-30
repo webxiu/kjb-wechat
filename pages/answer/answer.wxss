@@ -4,6 +4,8 @@
 .swich-box{
   width: 100%;
   background: #f7f7f7;
+  position:relative;
+
 }
 .swich-tab {
   height: 96rpx;
@@ -14,6 +16,8 @@
   display: inline-block;
   text-align: center;
   line-height: 96rpx;
+  align-items:center;
+
 }
 .tab-right {
   position: absolute;

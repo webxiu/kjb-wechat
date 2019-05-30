@@ -1,0 +1,171 @@
+/* 搜索框 start */
+
+.weui-search-bar {
+  position: relative;
+  padding: 16rpx 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-top: 2rpx solid #d7d6dc;
+  border-bottom: 2rpx solid #d7d6dc;
+}
+
+.weui-icon-search {
+  margin-right: 16rpx;
+  font-size: inherit;
+}
+
+.weui-icon-search_in-box {
+  position: absolute;
+  left: 20rpx;
+  top: 14rpx;
+}
+
+.weui-search-bar__form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  flex: auto;
+  border-radius: 10rpx;
+  background: #ebebeb;
+  border: 2rpx solid #e6e6ea;
+}
+
+.weui-search-bar__box {
+  position: relative;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.weui-search-bar__input {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+}
+
+.weui-icon-clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 14rpx 16rpx;
+  font-size: 0;
+}
+
+.weui-search-bar__cancel-btn {
+  margin-left: 20rpx;
+  line-height: 64rpx;
+  color: #dc3c24;
+  white-space: nowrap;
+}
+
+/* 搜索框 end */
+
+/* 选项卡 */
+
+.friend-tabar-title {
+  border-bottom: 2rpx solid #e6e6ea;
+  display: flex;
+  display: -webkit-flex;
+}
+
+.friend-tabar-item {
+  flex: 1;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.friend-tabar-item_txt {
+  display: inline-block;
+}
+
+.active {
+  border-bottom: 8rpx solid #c74421;
+}
+
+/* 选项卡内容 */
+
+.friend-content-box {
+  /* background: #f60; */
+}
+
+.friend-content-item {
+  padding: 20rpx 15rpx;
+}
+
+.friend-content-item_cell {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.friend-content-item_img {
+  height: 100%;
+}
+
+.friend-item_pic {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 86rpx;
+  height: 86rpx;
+  vertical-align: middle;
+}
+
+.friend-content-item_add {
+  flex: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:40rpx 20rpx 40rpx 0rpx;
+  border-bottom: 2rpx solid #ebebeb;
+  margin-left: 20rpx;
+}
+/* 去掉最后一个底部边框 */
+.friend-content-item_cell:last-child .friend-content-item_add{
+  border: none;
+}
+.friend-item_user {
+  display: inline-block;
+}
+
+button::after {
+  border: none;
+}
+
+.friend-item_btn {
+  border: 2rpx solid #c74421;
+  border-radius: 40rpx;
+  position: relative;
+  padding: 4rpx 20rpx 4rpx 50rpx;
+  white-space: nowrap;
+  color: #c74421;
+}
+
+.friend-item_btn::after {
+  content: '+';
+  position: absolute;
+  top: 2rpx;
+  left: 16rpx;
+  color: #c74421;
+}
+
+/* 加载动画 */
+.loading{
+  text-align: center;
+}
+.loading_img{
+  margin-top: 20rpx;
+ height:86rpx;
+width:120rpx;
+
+}
+.loading_text{
+ height:86rpx;
+ line-height: 86rpx;
+  color: #ccc;
+  font-size: 28rpx;
+}

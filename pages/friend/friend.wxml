@@ -1,0 +1,46 @@
+<!-- 搜索框 start -->
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="请输入查询内容" value="{{searchData}}" bindinput='SearchInput' bindconfirm="SearchConfirm" />
+      <view class="weui-icon-clear" wx:if="{{searchData.length > 0}}" bindtap="SearchClear">
+        <icon type="clear" size="14"></icon>
+      </view>
+    </view>
+  </view>
+  <view class="weui-search-bar__cancel-btn" bindtap="SearchConfirm">
+    <text wx:if="{{searchData.length>0}}" data-key='search'>搜索</text>
+    <text wx:else data-key='back'>返回</text>
+  </view>
+</view>
+<!-- 搜索框 end -->
+
+<!-- 选项卡标题 -->
+<view class='friend-tabar-title'>
+  <view class='friend-tabar-item' wx:for="{{titleList}}" wx:key="index">
+    <text class="friend-tabar-item_txt {{clickIndex == index ? 'active' : ''}}" data-index="{{index}}" bindtap='switchFriendTab'>{{item}}</text>
+  </view>
+</view>
+<!-- 选项卡内容 -->
+<view class='friend-content-box'>
+  <view class='friend-content-item' wx:for="{{friendList}}" wx:key="index" hidden="{{clickIndex==index?false : true}}">
+    <scroll-view scroll-y scroll-with-animation lower-threshold="{{lowerThreshold}}" bindscrolltolower="scrollBottom" style='height:{{scrollHeight}}rpx'>
+      <view class='friend-content-item_cell' wx:for="{{item.friends}}" wx:for-item="friend" wx:key="index">
+        <view class='friend-content-item_img'>
+          <image class='friend-item_pic' src='{{friend.imgUrl}}'></image>
+        </view>
+        <view class='friend-content-item_add'>
+          <text class='friend-item_user'>{{friend.name}}</text>
+          <view class='friend-item_btn'>好友</view>
+        </view>
+      </view>
+      <view class='loading'>
+        <view  wx:if="{{scrollBottom}}">
+        <image class='loading_img' src='http://www.kuajinghelp.com/assets/pc/images/three-dots.svg'></image>
+        </view>
+        <view wx:else class='loading_text'>没有更多了...</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

@@ -1,8 +1,9 @@
 <view class='containner'>
-  <form class='xf_box'>
+  <form class='xf_box' bindsubmit="formSubmit" >
     <view class="menu">
-      <input class='search' placeholder='输入商品名称' class='input' bindinput='input_txt' bindconfirm='btn_search' value='{{searchValue}}'></input>
-      <button class='btn' bindtap='btn_search'>搜索</button>
+      <input class='search' name="search" placeholder='输入商品名称' class='input' bindinput='input_txt' bindconfirm='btn_search' value='{{searchTxt}}' focus='{{aotofocus}}'><icon wx:if="{{clearShow}}" catchtap='clear' class='clear' type='cancel' size="20" color="#ccc" /></input>
+      
+      <button class='btn' bindtap='btn_search' form-type="submit">搜索</button>
     </view>
     <view wx:if="{{showHistory}}" class='recoder'>
       <view class='history'>搜索历史</view>

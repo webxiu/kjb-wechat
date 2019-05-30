@@ -1,3 +1,17 @@
+<!-- 
+  底部5个主入口页面
+    社交---group
+    资讯---info
+    首页---home
+      |-----------publish(图片视频上传)
+      |-----------friend(更多朋友)
+    发现---find
+      |-----------answer(问答)
+      |-----------social(社区)
+              |------------search(搜索)
+    我的---my
+ -->
+
 <!--logs.wxml-->
 <view class="container log-list">
   <block wx:for="{{logs}}" wx:for-item="log">

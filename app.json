@@ -10,6 +10,7 @@
     "pages/answer/answer",
     "pages/social/social",
     "pages/search/search",
+    "pages/friend/friend",
     "pages/test/test",
     "pages/logs/logs"
   ],

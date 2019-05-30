@@ -51,7 +51,7 @@
 				{
 					"id": 0,
 					"name": "当前",
-					"pathName": "pages/search/search",
+					"pathName": "pages/friend/friend",
 					"query": "",
 					"scene": null
 				},
