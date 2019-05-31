@@ -5,7 +5,7 @@
     <view class='home-location'>
       <icon class="iconfont icon-map"></icon>
       <text wx:if="{{cityInfo}}">{{cityInfo}}</text>
-      <text wx:else>中国</text>
+      <!-- <text wx:else>中国</text> -->
     </view>
     <scroll-view scroll-x="true" class="tab-h">
       <!-- <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="switchTab">健康</view> -->

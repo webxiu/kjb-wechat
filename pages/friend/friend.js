@@ -1,15 +1,14 @@
 // pages/friend/friend.js
+let app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    city:'中国',//显示城市
     searchData: '',
     clickIndex: 0,//点击索引
     scrollHeight:'',//计算动态滚动高度
     scrollBottom:false,//是否滚动到底部
     lowerThreshold:80,//距离底部多远加载
+    isShowLayer:false,//是否显示搜索弹层
     titleList: ['热门', '最新', '推荐', '附近'],
     friendList: [
       {
@@ -65,7 +64,7 @@ Page({
         friends: [
           {
             id: 91,
-            name: "李连杰",
+            name: "发发",
             imgUrl: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw=='
           },
           {
@@ -125,13 +124,13 @@ Page({
         friends: [
           {
             id: 91,
-            name: "发发",
+            name: "明白",
             imgUrl: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw=='
           },
           {
             id: 92,
             name: "发了附近",
-            imgUrl: 'http://www.kuajinghelp.com/spa/img/pic_default_secret.1ac08eca.png='
+            imgUrl: 'http://www.kuajinghelp.com/spa/img/pic_default_secret.1ac08eca.png'
           },
           {
             id: 93,
@@ -162,23 +161,71 @@ Page({
         ],
       },
     ],
+    searchFriends:[]//搜索好友获得的数据
 
   },
-  //获取输入框内容
-  SearchInput(e) {
+  //输入框获取焦点时候
+  onFocus(e) {
     this.setData({
-      SearchData: e.detail.value
+      isShowLayer: true,//显示搜索弹层
     })
+  },
+  //点击返回
+  goBack(){
+    this.setData({
+      isShowLayer: false,//隐藏搜索弹层
+    })
+  },
+  //获取输入框内容
+  searchInput(e) {
+    let _this = this;
+    let selectData = e.detail.value;
+    this.setData({
+      searchData: e.detail.value
+    })
+    // 1秒触发
+    setTimeout(function(){
+      _this.getFriends(selectData);//调用方法
+    },1000)
   },
   //清空输入
-  SearchClear() {
-    this.setData({
-      SearchData: ''
-    })
+  searchClear() {
+    this.setData({ 
+      searchData: '' 
+      })
   },
   // 点击完成触发&点击搜索按钮触发
-  SearchConfirm(e) {
+  searchConfirm(e) {
+    let selectData = e.detail.value || this.data.searchData;
+    this.getFriends(selectData);//调用方法
+  },
+  // 搜索好友方法抽离
+  getFriends(selectData){
+    let tempArray = [];
+    // console.log('提交搜索', selectData)
+    this.data.friendList.forEach((val, key) => {
+      let result = val.friends.find((data) => {
+        return data.name == selectData
+      })
+      console.log(123, result)
+      if (result) {//符合调节间的push数组中
+        tempArray.push(result)
+      }
+    })
+    this.setData({
+      searchFriends: tempArray
+    })
+  },
+  //添加好友
+  addFriend(e){
     console.log(e)
+    let friend = e.target.dataset.friend;
+    wx.showModal({
+      title: '提示',
+      content: '添加成功 ' + friend,
+      showCancel:false,
+     
+    })
   },
   //选项卡标题切换
   switchFriendTab(e) {
@@ -228,6 +275,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    
+    //获取地理位置
+    this.setData({
+      city: app.globalData.cityInfo,
+    })
 
   },
 

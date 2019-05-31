@@ -468,18 +468,21 @@ Page({
       })
     }
     var success = function(data) {
-      console.log('成功数据', data); //返回数据内，已经包含经纬度
+      let address = data.originalData.result.addressComponent.city
+      let city = address.substring(0, address.length - 1);
+
+      console.log('地理位置数据', data ); //返回数据内，已经包含经纬度
       wxMarkerData = data.wxMarkerData; //使用wxMarkerData获取数据
 
       // 全局设置经城市
-      app.globalData.cityInfo = data.originalData.result.addressComponent.city
+      app.globalData.cityInfo = city
 
       _this.setData({
         // markers: wxMarkerData,
         // latitude: wxMarkerData[0].latitude,
         // longitude: wxMarkerData[0].longitude,
         // address: wxMarkerData[0].address,
-        cityInfo: data.originalData.result.addressComponent.city,
+        cityInfo: city,
         showTip: false,
       });
     }
@@ -532,6 +535,10 @@ Page({
     })
   },
   onShow: function() {
+    //显示默认地址
+    this.setData({
+      cityInfo: app.globalData.cityInfo,
+    })
     this.coord_Map(); //调用 地址获取方法
   },
   //查看更多--url跳转
