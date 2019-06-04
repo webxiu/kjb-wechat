@@ -11,6 +11,7 @@
     "pages/social/social",
     "pages/search/search",
     "pages/friend/friend",
+    "pages/homepage/homepage",
     "pages/test/test",
     "pages/logs/logs"
   ],

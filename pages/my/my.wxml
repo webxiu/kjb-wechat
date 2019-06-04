@@ -54,7 +54,7 @@
   </view>
   <!-- 主页图标 -->
   <view class='cate-list'>
-    <view wx:for="{{cateList}}" class='cate-item' wx:key="index">
+    <view wx:for="{{cateList}}" class='cate-item' data-select="{{item.title}}" bindtap='homePage' wx:key="index">
       <image class='cate-icon' src='{{item.iconImg}}'></image>
       <text class='cate-title'>{{item.title}}</text>
     </view>

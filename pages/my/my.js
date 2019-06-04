@@ -82,6 +82,7 @@ Page({
     })
   },
   onShow(){//打开页面就执行--刷新功能
+    console.log('====',app.globalData.userInfo)
     if (app.globalData.userInfo){
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -92,6 +93,14 @@ Page({
         showTip: true,
       })
     }
+  },
+  // 跳转
+  homePage(e){
+    console.log(e)
+    let select = e.currentTarget.dataset.select;
+    wx.navigateTo({
+      url: '/pages/homepage/homepage?select=' + select,
+    })
   },
   onLoad:function(){
     if (app.globalData.userInfo){//已经授权

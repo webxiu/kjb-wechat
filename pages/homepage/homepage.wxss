@@ -1,0 +1,139 @@
+/* pages/homepage/homepage.wxss */
+.containner{
+  height: 100%;
+}
+.mypage {
+  padding: 10rpx 20rpx 20rpx;
+  background: url(http://www.kuajinghelp.com/spa/img/user_home_bg.2476ef02.png) no-repeat;
+  background-size: cover;
+}
+/* 头部 */
+.home-page-head {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
+
+.home-page-user_Pic {
+  width: 160rpx;
+  height: 160rpx;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.home-page-user_img {
+  width: 100%;
+  height: 100%;
+}
+
+.home-page-user_Info {
+  flex: auto;
+  padding-top: 20rpx;
+}
+
+.home-page-myInfo {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  line-height: 50rpx;
+  text-align: center;
+  justify-content: space-between;
+}
+/* 地址信息 */
+.myInfo-item {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.myInfo-number {
+  color: #121212;
+}
+
+.myInfo-desc {
+  color: #9d9d9d;
+}
+
+.myInfo_realName {
+  font-size: 30rpx;
+  display: flex;
+  margin-top: 20rpx;
+  margin-left: 40rpx;
+  color: #323232;
+}
+
+.myInfo-address-item {
+  display: flex;
+  flex-direction: row;
+  font-size: 32rpx;
+  margin-top: 30rpx;
+}
+
+.myInfo-address-item_title {
+  white-space: nowrap;
+  padding-right: 40rpx;
+}
+
+.myInfo-address-item_cont {
+  flex: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  padding-right: 10rpx;
+}
+/* 动态 */
+.my-dynamic{
+  height: 100%;
+  padding: 0 20rpx;
+}
+.my-dynamic_title{
+  padding: 20rpx 0;
+}
+.my-dynamic_text{
+  border-bottom:4rpx solid #f74221;
+  padding-bottom: 6rpx;
+}
+/* 动态内容 */
+.my-dynamic_cont{
+  padding-top: 20rpx;
+}
+
+.my-dynamic_item{
+  font-size: 30rpx;
+  margin: 20rpx;
+  position: relative;
+  padding-left: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+}
+.my-dynamic_item::after{
+  content: '';
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 0rpx;
+  top: 45%;
+  background: red;
+}
+.dynamic-article{
+  color: #9d9d9d;
+  text-decoration: underline;
+}
+
+.nothing{
+  text-align: center;
+}
+.no-more-img{
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.no-more-text{
+  text-align: center;
+  font-size: 28rpx;
+  margin-top: 20rpx;color: #ccc;
+}

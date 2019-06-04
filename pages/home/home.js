@@ -103,11 +103,12 @@ Page({
       'https://gw.alicdn.com/imgextra/i2/7/O1CN019pJSIO1BvFIRVBG9Q_!!7-0-lubanu.jpg',
       'https://gw.alicdn.com/imgextra/i4/3/O1CN01C30Xn11BtPiMnhAs0_!!3-0-lubanu.jpg'
     ],
+    activityArr:[],
     activity: [{
         isImage:true,
         userPic: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw==',
         user: 'ellimy',
-        time: '1小时前',
+        time: '2019-06-04 11:06:45',
         title: '99人类文明的「蝇王」式困境看了黄渤的《一出好戏》，无端地想起了《蝇王》，虽然这不是他剧本的原型，美剧《迷失》和特稿《太平洋逃杀记》更接近于他对于故事的想象。但《一出好戏》的剧本结构能与《蝇王》相互参照。一群人因遭厄运流落到孤岛，被困在前文明的环境里。两个故事中的人们，起初协力劳作，荜路蓝蒌，以处草莽。可是脱离人类社会愈久，内心的道德感和约束力量也就愈弱，人的动物性的那面开始浮现',
         img: [
           'http://kuajingbang.oss-cn-shenzhen.aliyuncs.com/2019/05/09/0616/NqgMg8lqfszIC6RdYQKEIQiepBA7nMqxhEdZXVYL.png?x-oss-process=image%2Fquality%2Cq_40%2Fauto-orient%2C1',
@@ -119,7 +120,7 @@ Page({
         isImage: false,
         userPic: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw==',
         user: 'ellimy',
-        time: 'false小时前',
+        time: '2019-06-04 10:10:45',
         title: '99人类文明的「蝇王」式困境看了黄渤的《一出好戏》，无端地想起了《蝇王》，虽然这不是他剧本的原型，美剧《迷失》和特稿《太平洋逃杀记》更接近于他对于故事的想象。但《一出好戏》的剧本结构能与《蝇王》相互参照。一群人因遭厄运流落到孤岛，被困在前文明的环境里。两个故事中的人们，起初协力劳作，荜路蓝蒌，以处草莽。可是脱离人类社会愈久，内心的道德感和约束力量也就愈弱，人的动物性的那面开始浮现',
         vdo: [
           {
@@ -133,7 +134,7 @@ Page({
         isImage: true,
         userPic: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw==',
         user: 'ellimy',
-        time: '2小时前',
+        time: '2019-06-02 10:52:45',
         title: '99人类文明的「蝇王」式困境看了黄渤的《一出好戏》，无端地想起了《蝇王》，虽然这不是他剧本的原型，美剧《迷失》和特稿《太平洋逃杀记》更接近于他对于故事的想象。但《一出好戏》的剧本结构能与《蝇王》相互参照。一群人因遭厄运流落到孤岛，被困在前文明的环境里。两个故事中的人们，起初协力劳作，荜路蓝蒌，以处草莽。可是脱离人类社会愈久，内心的道德感和约束力量也就愈弱，人的动物性的那面开始浮现',
         img: [
           'http://kuajingbang.oss-cn-shenzhen.aliyuncs.com/2019/05/16/0832/0Mo4fNBAZ8OPhhO0GRDUnyCqygYPwrNthigRy1MV.png?x-oss-process=image%2Fquality%2Cq_40%2Fauto-orient%2C1',
@@ -143,7 +144,7 @@ Page({
         isImage:false,
         userPic: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw==',
         user: 'ellimy',
-        time: '2小时前',
+        time: '2019-06-03 10:30:45',
         title: '99人类文明的「蝇王」式困境看了黄渤的《一出好戏》，无端地想起了《蝇王》，虽然这不是他剧本的原型，美剧《迷失》和特稿《太平洋逃杀记》更接近于他对于故事的想象。但《一出好戏》的剧本结构能与《蝇王》相互参照。一群人因遭厄运流落到孤岛，被困在前文明的环境里。两个故事中的人们，起初协力劳作，荜路蓝蒌，以处草莽。可是脱离人类社会愈久，内心的道德感和约束力量也就愈弱，人的动物性的那面开始浮现',
         vdo: [
           {
@@ -162,7 +163,7 @@ Page({
         isImage: false,
         userPic: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw==',
         user: 'ellimy',
-        time: '2小时前',
+        time: '2019-02-12 12:30:45',
         title: '99人类文明的「蝇王」式困境看了黄渤的《一出好戏》，无端地想起了《蝇王》，虽然这不是他剧本的原型，美剧《迷失》和特稿《太平洋逃杀记》更接近于他对于故事的想象。但《一出好戏》的剧本结构能与《蝇王》相互参照。一群人因遭厄运流落到孤岛，被困在前文明的环境里。两个故事中的人们，起初协力劳作，荜路蓝蒌，以处草莽。可是脱离人类社会愈久，内心的道德感和约束力量也就愈弱，人的动物性的那面开始浮现',
         vdo: [
           {
@@ -186,7 +187,7 @@ Page({
         isImage: true,
         userPic: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw==',
         user: 'ellimy',
-        time: '3小时前',
+        time: '2019-02-12 20:30:45',
         title: '99人类文明的「蝇王」式困境看了黄渤的《一出好戏》，无端地想起了《蝇王》，虽然这不是他剧本的原型，美剧《迷失》和特稿《太平洋逃杀记》更接近于他对于故事的想象。但《一出好戏》的剧本结构能与《蝇王》相互参照。一群人因遭厄运流落到孤岛，被困在前文明的环境里。两个故事中的人们，起初协力劳作，荜路蓝蒌，以处草莽。可是脱离人类社会愈久，内心的道德感和约束力量也就愈弱，人的动物性的那面开始浮现',
         img: [
           'http://kuajingbang.oss-cn-shenzhen.aliyuncs.com/2019/05/16/0832/s0XegmbIlbdUNL523Voz3YYpOs51gGLpfo670ZCu.png?x-oss-process=image%2Fquality%2Cq_40%2Fauto-orient%2C1',
@@ -197,7 +198,7 @@ Page({
         isImage: true,
         userPic: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw==',
         user: 'ellimy',
-        time: '4小时前',
+        time: '2019-06-03 20:30:45',
         title: '99人类文明的「蝇王」式困境看了黄渤的《一出好戏》，无端地想起了《蝇王》，虽然这不是他剧本的原型，美剧《迷失》和特稿《太平洋逃杀记》更接近于他对于故事的想象。但《一出好戏》的剧本结构能与《蝇王》相互参照。一群人因遭厄运流落到孤岛，被困在前文明的环境里。两个故事中的人们，起初协力劳作，荜路蓝蒌，以处草莽。可是脱离人类社会愈久，内心的道德感和约束力量也就愈弱，人的动物性的那面开始浮现',
         img: [
           'http://kuajingbang.oss-cn-shenzhen.aliyuncs.com/2019/05/16/0832/s0XegmbIlbdUNL523Voz3YYpOs51gGLpfo670ZCu.png?x-oss-process=image%2Fquality%2Cq_40%2Fauto-orient%2C1',
@@ -208,7 +209,7 @@ Page({
         isImage: true,
         userPic: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw==',
         user: 'ellimy',
-        time: '5小时前',
+        time: '2018-09-12 20:30:45',
         title: '99人类文明的「蝇王」式困境看了黄渤的《一出好戏》，无端地想起了《蝇王》，虽然这不是他剧本的原型，美剧《迷失》和特稿《太平洋逃杀记》更接近于他对于故事的想象。但《一出好戏》的剧本结构能与《蝇王》相互参照。一群人因遭厄运流落到孤岛，被困在前文明的环境里。两个故事中的人们，起初协力劳作，荜路蓝蒌，以处草莽。可是脱离人类社会愈久，内心的道德感和约束力量也就愈弱，人的动物性的那面开始浮现',
         img: [
           'http://kuajingbang.oss-cn-shenzhen.aliyuncs.com/2019/05/16/0832/s0XegmbIlbdUNL523Voz3YYpOs51gGLpfo670ZCu.png?x-oss-process=image%2Fquality%2Cq_40%2Fauto-orient%2C1',
@@ -219,7 +220,7 @@ Page({
         isImage: true,
         userPic: 'http://www.kuajinghelp.com/storage/public:MjAxOS8wNS8xNS9PUmQxM2xEQkdoejQyN2JtWnZySVlEc2Q5aXdLWjMybEY4Zml2SzdRdm9LS3duMnIwRlRaVUptTGtKUEFVeGRGLmpwZw==',
         user: 'ellimy',
-        time: 'end小时前',
+        time: '2010-09-12 20:30:45',
         title: '99人类文明的「蝇王」式困境看了黄渤的《一出好戏》，无端地想起了《蝇王》，虽然这不是他剧本的原型，美剧《迷失》和特稿《太平洋逃杀记》更接近于他对于故事的想象。但《一出好戏》的剧本结构能与《蝇王》相互参照。一群人因遭厄运流落到孤岛，被困在前文明的环境里。两个故事中的人们，起初协力劳作，荜路蓝蒌，以处草莽。可是脱离人类社会愈久，内心的道德感和约束力量也就愈弱，人的动物性的那面开始浮现',
         img: [
           'http://kuajingbang.oss-cn-shenzhen.aliyuncs.com/2019/05/16/0832/s0XegmbIlbdUNL523Voz3YYpOs51gGLpfo670ZCu.png?x-oss-process=image%2Fquality%2Cq_40%2Fauto-orient%2C1',
@@ -534,20 +535,82 @@ Page({
 
     })
   },
+  //查看更多--url跳转
+  lookMore() {
+    wx.navigateTo({
+      url: '/pages/friend/friend'
+    })
+  },
+  getDateDistance: function (time) {
+    //把年月日,时分秒 转换为 毫秒数
+    var minute = 1000 * 60;//1分钟是多少秒
+    var hour = minute * 60;//1小时是多少秒...依此类推
+    var day = hour * 24;
+    var week = day * 7;
+    var halfmonth = day * 15;
+    var month = day * 30;
+    var year = month * 12;
+    var halfyear = month * 12 / 2;
+    var year5 = month * 12 * 5;
+
+    var date = new Date()
+    var end = new Date(time)
+    //两个时间差的毫秒数
+    var dis = date.getTime() - end.getTime();
+    if (dis < 0) { return '未来' };
+
+    //时间差的毫秒数
+    var minD = dis / minute;
+    var hourD = dis / hour;
+    var dayD = dis / day;
+    var weekD = dis / week;
+    var halfmonth = dis / halfmonth;
+    var monthD = dis / month;
+    var yearD = dis / year;
+    var halfyear = dis / halfyear;
+    var year5D = dis / year5;
+
+    if (year5D > 1) {
+      return '5年前';//5年
+    } else if (yearD >= 1 && yearD <= 5) {
+      return parseInt(yearD) + '年前';
+    } else if (halfyear >= 1 && halfyear <= 2) {
+      return '半年前';//半年前
+    } else if (monthD >= 1 && monthD <= 6) {
+      return parseInt(monthD) + '个月前';
+    } else if (halfmonth >= 1 && monthD <= 2) {
+      return '半个月前';
+    } else if (weekD >= 1 && weekD <= 3) {
+      return parseInt(weekD) + '周前';
+    } else if (dayD >= 1 && dayD <= 6) {
+      return parseInt(dayD) + '天前';
+    } else if (hourD >= 1 && hourD <= 24) {
+      return parseInt(hourD) + '小时前';
+    } else if (minD >= 1 && minD <= 59) {
+      return parseInt(minD) + '分钟前';
+    } else if (dis > 0 && dis <= minute) {
+      return '刚刚';
+    }
+  },
+  activityFomate() {
+    this.data.activity.map((val, idx) => {
+      return val.time = this.getDateDistance(val.time);
+    })
+    console.log(this.data.activity)
+    this.setData({
+      activityArr: this.data.activity,
+    })
+  },
+
   onShow: function() {
+    this.activityFomate();
+
     //显示默认地址
     this.setData({
       cityInfo: app.globalData.cityInfo,
     })
     this.coord_Map(); //调用 地址获取方法
   },
-  //查看更多--url跳转
-  lookMore(){
-    wx.navigateTo({
-      url:'/pages/friend/friend'
-    })
-  },
-
   onLoad: function() {
     let _this = this;
     //  高度自适应

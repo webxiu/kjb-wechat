@@ -1,0 +1,50 @@
+<view class='containner'>
+  <view class='mypage'>
+    <!-- 头像 -->
+    <view class='home-page-head'>
+      <view class='home-page-user_Pic'>
+        <image class='home-page-user_img' src='{{personInfo.image}}'></image>
+      </view>
+      <view class='home-page-user_Info'>
+        <view class='home-page-myInfo'>
+          <view class='myInfo-item' wx:for="{{personInfo.myInfo}}" wx:key="index">
+            <view class='myInfo-number'>{{item.number}}</view>
+            <view class='myInfo-desc'>{{item.desc}}</view>
+          </view>
+
+        </view>
+        <view class='myInfo_realName'>真实姓名
+          <text>{{personInfo.real_name}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 地址 -->
+    <view class='myInfo-address-list'>
+      <view class='myInfo-address-item' wx:for="{{addressInfo}}" wx:key="index">
+        <view class='myInfo-address-item_title'>{{item.name}}:</view>
+        <view class='myInfo-address-item_cont'> {{item.content}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 动态 -->
+  <view class='my-dynamic'>
+    <view class='my-dynamic_title'>
+      <text class='my-dynamic_text'>动态</text>
+    </view>
+    <view class='my-dynamic_cont'>
+      <view wx:if="{{dynamicArticle.length > 0}}">
+        <view class='my-dynamic_list' wx:for="{{articleInfo}}" wx:key="index">
+          <view class='my-dynamic_item'>
+            <text>{{item.time}}</text> 发表了
+            <text class='dynamic-article'>{{item.article}}</text>
+          </view>
+        </view>
+
+      </view>
+      <view wx:else class='nothing'>
+        <image class='no-more-img' src='http://www.kuajinghelp.com/spa/img/no-more.c22786c2.png'></image>
+        <view class='no-more-text'>‘— 没有更多 —</view>
+      </view>
+    </view>
+  </view>
+</view>
