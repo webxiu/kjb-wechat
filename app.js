@@ -35,6 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    cityInfo: '日本',//默认城市
+    cityInfo: '中国',//默认城市
   }
 })

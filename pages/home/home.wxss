@@ -160,10 +160,10 @@
 /*可能认识的好友列表*/
 
 .frinds-list {
-  overflow: hidden;
+  /* overflow: hidden;
   border-bottom: 1px solid #eee;
+  padding-left: 20rpx; */
   padding: 15rpx;
-  padding-left: 20rpx;
   background: #eee;
 }
 

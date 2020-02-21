@@ -4,7 +4,7 @@
       <!-- 输入框 -->
       <view>
         <text class='submit-tit'>发表最近的新鲜事</text>
-        <textarea name="msg" class='textarea' bindblur="bindTextAreaBlur" maxlength="-1" auto-focus adjust-position show-confirm-bar placeholder="说点儿什么吧~" placeholder-style="color:#ccc;" />
+        <textarea name="msg" class='textarea' maxlength="-1" auto-focus adjust-position show-confirm-bar placeholder="说点儿什么吧~" placeholder-style="color:#ccc;" />
       </view>
       <!-- 协议选择 -->
      

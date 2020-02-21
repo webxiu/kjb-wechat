@@ -178,10 +178,12 @@ Page({
   },
   // 发布
   submitForm(e){
-    let text = e.detail.value;//获取输入框文本
-    this.uploadData(text);
+    let { ...data} = e.detail.value;//获取输入框文本
+    
+    console.log(999, data)
+    this.uploadData(data.msg);
   },
-  uploadData(text){
+  uploadData(msg){
     // 获取用户
     let userName = app.globalData.userInfo.nickName;//用户名
     let userInfo = app.globalData.userInfo;
@@ -197,7 +199,7 @@ Page({
       //弹出登录授权提示
       return;
     }
-    if (!text.msg.length) {
+    if (!msg.length) {
       wx.showToast({
         title: '没有输入内容',
       })
@@ -211,7 +213,7 @@ Page({
     }
 
     let param = {
-      text: text,//发布内容
+      text: msg,//发布内容
       img: img,//获取上传的图片链接数组
       video: video,//获取上传的图片链接数组
       userName: userName,
